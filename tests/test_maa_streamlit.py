@@ -4,7 +4,7 @@ import maa_streamlit
 
 
 def test_cron_delta():
-    cron_delta = maa_streamlit.background.cron_delta
+    cron_delta = maa_streamlit.schedule.cron_delta
     assert cron_delta(dt.time(), dt.datetime(2000, 1, 1, 23, 59, 30)) == dt.timedelta(
         seconds=30
     )

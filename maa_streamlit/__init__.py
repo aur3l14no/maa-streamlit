@@ -2,7 +2,7 @@ from typing import List
 
 from loguru import logger
 
-from . import adb, background, config, consts, globals, utils  # noqa: F401
+from . import adb, config, consts, globals, schedule, utils  # noqa: F401
 
 logger = logger.bind(module="maa_streamlit")
 logger.add(
@@ -22,7 +22,7 @@ def init():
     for obj in [getattr(globals, name) for name in globals.__all__]:
         obj()
     logger.info(f"initialized globals: {globals.__all__}")
-    background.spawn_scheduler_thread()
+    schedule.spawn_scheduler_thread()
 
 
 def shutdown():

@@ -1,15 +1,13 @@
 """Background tasks."""
 import datetime as dt
-import logging
 import threading
 import time
+from typing import Optional
 
 import streamlit as st
 from streamlit.runtime.scriptrunner import add_script_run_ctx
 
 import maa_streamlit
-
-logger = logging.getLogger("maa_streamlit.background")
 
 
 def cron_delta(cron_time: dt.time, datetime: dt.datetime):
@@ -23,7 +21,7 @@ def cron_delta(cron_time: dt.time, datetime: dt.datetime):
 
 
 @st.cache_resource
-def scheduled_tasks_stats_dict():
+def scheduled_tasks_stats_dict() -> dict[str, Optional[dt.datetime]]:
     tasksets = maa_streamlit.globals.tasksets()
     return {taskset.name: None for taskset in tasksets}
 
@@ -31,23 +29,30 @@ def scheduled_tasks_stats_dict():
 @st.cache_resource
 def spawn_scheduler_thread() -> threading.Thread:
     MIN_INTERVAL_BETWEEN_RUNS_PER_TASKSET = dt.timedelta(minutes=10)
+    TOLERANCE = dt.timedelta(minutes=1)
+    FORCE_STOP = True
 
-    # FIXME avoid repetitive runs
     def f():
         tasksets = maa_streamlit.globals.tasksets()
         while True:
             now = dt.datetime.now()
             for taskset in tasksets:
+                maa_streamlit.logger.trace(
+                    f"Tick! {taskset.name} @ {taskset.schedule} has delta: {cron_delta(taskset.schedule, now)}"
+                )
                 if (
                     taskset.schedule
                     and taskset.enable
-                    and cron_delta(taskset.schedule, dt.datetime.now())
-                    < dt.timedelta(minutes=1)
-                    and (last_run := scheduled_tasks_stats_dict()[taskset.name])
-                    and now - last_run > MIN_INTERVAL_BETWEEN_RUNS_PER_TASKSET
+                    and cron_delta(taskset.schedule, now) < TOLERANCE
+                    and (
+                        (last_run := scheduled_tasks_stats_dict()[taskset.name]) is None
+                        or (now - last_run > MIN_INTERVAL_BETWEEN_RUNS_PER_TASKSET)
+                    )
                 ):
-                    logger.info(f"Scheduled taskset: {taskset.name}")
-                    maa_streamlit.run_tasks(taskset.asst.address, taskset.tasks)
+                    maa_streamlit.logger.info(f"Scheduled taskset: {taskset.name}")
+                    maa_streamlit.run_tasks(
+                        taskset.asst.address, taskset.tasks, force_stop=FORCE_STOP
+                    )
                     scheduled_tasks_stats_dict()[taskset.name] = dt.datetime.now()
             time.sleep(60)
 
