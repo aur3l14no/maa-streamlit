@@ -68,6 +68,11 @@ def make_callback(logger):
                         f"[基建] {d['details'].get('facility')}@{d['details'].get('index')}: "
                         f"{d['details'].get('names')}"
                     )
+                elif what == "DepotInfo":
+                    logger.info(
+                        f"[仓库] arkplanner {d['details']['arkplanner']['data']}"
+                    )
+                    logger.info(f"[仓库] lolicon {d['details']['lolicon']['data']}")
 
             logger.debug(json.dumps({"msg": str(m), "details": d}))
         except Exception:
