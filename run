@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+
+systemctl --user is-active --quiet maa-daemon.service ||  systemctl start --user maa-daemon.service
+
+set -gx LOGURU_DIAGNOSE no
+
+streamlit run Dashboard.py

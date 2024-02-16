@@ -1,0 +1,11 @@
+.devenv
+.direnv
+.venv
+
+/config
+
+__pycache__
+.pytest_cache
+
+.ruff_cache
+.streamlit/secrets.toml

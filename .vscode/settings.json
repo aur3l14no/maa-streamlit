@@ -1,0 +1,5 @@
+{
+    "ruff.path": [
+        "${workspaceFolder}/.devenv/profile/bin/ruff"
+    ]
+}
