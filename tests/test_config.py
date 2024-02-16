@@ -23,6 +23,16 @@ def test_load_task_in_taskset():
     assert len(task.params.keys()) > 1
 
 
+def test_override():
+    d = {"use": "mall", "params": {"blacklist": []}}
+    task = maa_streamlit.config.Task.model_validate(d)
+    assert task.params["blacklist"] == []
+    assert (
+        task.params["buy_first"]
+        == maa_streamlit.config.Task.load("mall").params["buy_first"]
+    )
+
+
 def test_load_tasks():
     tasks = maa_streamlit.config.load_all_tasks()
     assert tasks

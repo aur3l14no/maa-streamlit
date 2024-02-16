@@ -3,10 +3,17 @@ import pathlib
 from typing import Any, List, Optional
 
 import tomllib
-from deepmerge import always_merger
+from deepmerge import Merger
 from pydantic import BaseModel, model_validator
 
 CONFIG_DIR = pathlib.Path("config")
+
+# only dicts got merged (in our case, it should be params)
+my_merger = Merger(
+    [(dict, ["merge"])],
+    ["override"],
+    ["override"],
+)
 
 
 class Task(BaseModel):
@@ -22,7 +29,7 @@ class Task(BaseModel):
             path = pathlib.Path(CONFIG_DIR / f"tasks/{data['use']}.toml")
             toml = tomllib.loads(path.read_text())
             # priority: data > toml
-            data = always_merger.merge(toml, data)
+            data = my_merger.merge(toml, data)
             if "name" not in data:
                 data["name"] = data["use"]
         return data
