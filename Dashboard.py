@@ -129,10 +129,19 @@ for device in maa_streamlit.globals.managed_devices():
         ]
         # TODO allow dynamic config?
         for taskset in tasksets:
+            tasks_str = " | ".join(
+                [
+                    task.name
+                    if (preset := maa_streamlit.globals.task_dict().get(task.name))
+                    and task.params == preset.params
+                    else task.name + "*"
+                    for task in taskset.tasks
+                ]
+            )
             st.markdown(
                 f"{'🟩' if taskset.enable else '🟥'} **[{taskset.name}] @ {taskset.schedule}**\n\n"
                 f"last: {maa_streamlit.schedule.scheduled_tasks_stats_dict()[taskset.name]}\n\n"
-                f"{' | '.join([task.name for task in taskset.tasks])}"
+                f"{' | '.join([task.name if task.params == maa_streamlit.globals.task_dict()[task.name].params else task.name + '*' for task in taskset.tasks])}"
             )
 
     with col_log:
