@@ -1,3 +1,5 @@
+import hmac
+
 import streamlit as st
 from streamlit_autorefresh import st_autorefresh
 
@@ -9,6 +11,35 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+
+
+# Auth
+def check_password():
+    """Returns `True` if the user had the correct password."""
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # Don't store the password.
+        else:
+            st.session_state["password_correct"] = False
+
+    # Return True if the password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
+
+    # Show input for password.
+    st.text_input(
+        "Password", type="password", on_change=password_entered, key="password"
+    )
+    if "password_correct" in st.session_state:
+        st.error("😕 Password incorrect")
+    return False
+
+
+if not check_password():
+    st.stop()  # Do not continue if check_password is not True.
 
 
 @st.cache_resource
@@ -99,8 +130,8 @@ for device in maa_streamlit.globals.managed_devices():
         # TODO allow dynamic config?
         for taskset in tasksets:
             st.markdown(
-                f"{'🟩' if taskset.enable else '🟥'} **[{taskset.name}] @ {taskset.schedule}** "
-                f"last: {maa_streamlit.background.scheduled_tasks_stats_dict()[taskset.name]}\n\n"
+                f"{'🟩' if taskset.enable else '🟥'} **[{taskset.name}] @ {taskset.schedule}**\n\n"
+                f"last: {maa_streamlit.schedule.scheduled_tasks_stats_dict()[taskset.name]}\n\n"
                 f"{' | '.join([task.name for task in taskset.tasks])}"
             )
 
