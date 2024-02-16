@@ -68,7 +68,7 @@ def make_callback(logger):
                         f"[基建] {d['details'].get('facility')}@{d['details'].get('index')}: "
                         f"{d['details'].get('names')}"
                     )
-                elif what == "DepotInfo":
+                elif what == "DepotInfo" and d["details"]["done"]:
                     logger.info(
                         f"[仓库] arkplanner {d['details']['arkplanner']['data']}"
                     )
