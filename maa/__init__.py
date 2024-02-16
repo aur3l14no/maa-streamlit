@@ -51,25 +51,27 @@ def make_callback(logger):
                 # 公开招募
                 what = d["what"]
                 if what == "RecruitResult":
-                    logger.info(f"[公招]: 结果 {'★' * d['details'].get('tag')}")
+                    logger.info(
+                        f"[公招] 结果 {'★' * d['details'].get('level')} {d['details'].get('tags')}"
+                    )
                 elif what == "RecruitTagsDetected":
-                    logger.info(f"[公招]: 检测到标签 {'★' * d['details'].get('level')}")
+                    logger.info(f"[公招] 检测到标签 {d['details'].get('tags')}")
                 elif what == "RecruitSpecialTag":
-                    logger.info(f"[公招]: 检测到标签 {'★' * d['details'].get('tag')}")
+                    logger.info(f"[公招] 检测到标签 {'★' * d['details'].get('tag')}")
                 elif what == "RecruitRobotTag":
-                    logger.info(f"[公招]: 检测到标签 {'★' * d['details'].get('tag')}")
+                    logger.info(f"[公招] 检测到标签 {'★' * d['details'].get('tag')}")
                 elif what == "RecruitTagsRefreshed":
-                    logger.info("[公招]: 刷新")
+                    logger.info("[公招] 刷新")
                 # 基建
                 elif what == "CustomInfrastRoomOperators":
                     logger.info(
-                        f"[基建]: {d['details'].get('facility')}@{d['details'].get('index')}: "
-                        f"{d['details'].get('names')} <- {d['details'].get('candidates')}"
+                        f"[基建] {d['details'].get('facility')}@{d['details'].get('index')}: "
+                        f"{d['details'].get('names')}"
                     )
 
             logger.debug(json.dumps({"msg": str(m), "details": d}))
         except Exception:
-            logger.debug(json.dumps({"msg": str(m), "details": d}))
+            logger.error(json.dumps({"msg": str(m), "details": d}))
 
     return Asst.CallBackType(my_callback)
 
