@@ -51,7 +51,7 @@ def spawn_scheduler_thread() -> threading.Thread:
                 ):
                     maa_streamlit.logger.info(f"Scheduled taskset: {taskset.name}")
                     maa_streamlit.run_tasks(
-                        taskset.asst.address, taskset.tasks, force_stop=FORCE_STOP
+                        taskset.asst.device, taskset.tasks, force_stop=FORCE_STOP
                     )
                     scheduled_tasks_stats_dict()[taskset.name] = dt.datetime.now()
             time.sleep(60)

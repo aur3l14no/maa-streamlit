@@ -41,7 +41,7 @@ class Task(BaseModel):
 
 class TaskSet(BaseModel):
     class AsstConfig(BaseModel):
-        address: str
+        device: str
 
     name: str
     tasks: List[Task]
