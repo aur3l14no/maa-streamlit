@@ -55,61 +55,69 @@ class MaaProxy:
                 m = Message(msg)
                 d = json.loads(details.decode("utf-8"))
                 try:
-                    if m == Message.TaskChainStart:
-                        pass
-                    elif m == Message.SubTaskCompleted:
-                        task = d["details"].get("task")
-                        if task == "StartButton2":
-                            logger.info("[作战] +1")
-                        elif task == "AbandonAction":
-                            logger.info("[作战] 代理失败")
-                        elif task == "StartExplore":
-                            logger.info("[肉鸽] +1")
-                        elif task == "MissionFailedFlag":
-                            logger.info("[肉鸽] 失败")
-                        elif task == "MissionCompletedFlag":
-                            logger.info("[肉鸽] 成功")
-                        elif task == "OfflineConfirm":
-                            logger.info("[游戏] 掉线")
-                    elif m == Message.ConnectionInfo:
-                        if d["what"] == "Connected":
-                            logger.info("[ADB] 连接成功")
-                        if d["what"] == "FastestWayToScreencap":
-                            logger.info(
-                                f"[ADB] 截图耗时 {d['details'].get('cost')} ({d['details'].get('method')})"
-                            )
-                    elif m == Message.SubTaskExtraInfo:
-                        # 公开招募
-                        what = d["what"]
-                        if what == "RecruitResult":
-                            logger.info(
-                                f"[公招] 结果 {'★' * d['details'].get('level')} {d['details'].get('tags')}"
-                            )
-                        elif what == "RecruitTagsDetected":
-                            logger.info(f"[公招] 检测到标签 {d['details'].get('tags')}")
-                        elif what == "RecruitSpecialTag":
-                            logger.info(
-                                f"[公招] 检测到标签 {'★' * d['details'].get('tag')}"
-                            )
-                        elif what == "RecruitRobotTag":
-                            logger.info(
-                                f"[公招] 检测到标签 {'★' * d['details'].get('tag')}"
-                            )
-                        elif what == "RecruitTagsRefreshed":
-                            logger.info("[公招] 刷新")
-                        # 基建
-                        elif what == "CustomInfrastRoomOperators":
-                            logger.info(
-                                f"[基建] {d['details'].get('facility')}@{d['details'].get('index')}: "
-                                f"{d['details'].get('names')}"
-                            )
-                        elif what == "DepotInfo" and d["details"]["done"]:
-                            logger.info(
-                                f"[仓库] arkplanner {d['details']['arkplanner']['data']}"
-                            )
-                            logger.info(
-                                f"[仓库] lolicon {d['details']['lolicon']['data']}"
-                            )
+                    match m:
+                        case (
+                            Message.TaskChainStart
+                            | Message.TaskChainCompleted
+                            | Message.TaskChainError
+                            | Message.TaskChainExtraInfo
+                            | Message.TaskChainStopped
+                        ):
+                            logger.info(f"{m} {d['taskchain']}")
+                        case Message.SubTaskCompleted:
+                            match d["details"].get("task"):
+                                case "StartButton2":
+                                    logger.info("[作战] +1")
+                                case "AbandonAction":
+                                    logger.info("[作战] 代理失败")
+                                case "StartExplore":
+                                    logger.info("[肉鸽] +1")
+                                case "OfflineConfirm":
+                                    logger.info("[游戏] 掉线")
+                        case Message.ConnectionInfo:
+                            match d["what"]:
+                                case "Connected":
+                                    logger.info("[ADB] 连接成功")
+                                case "FastestWayToScreencap":
+                                    logger.info(
+                                        f"[ADB] 截图耗时 {d['details'].get('cost')} ({d['details'].get('method')})"
+                                    )
+                        case Message.SubTaskExtraInfo:
+                            # 公开招募
+                            match d["what"]:
+                                case "RecruitResult":
+                                    logger.info(
+                                        f"[公招] 结果 {'★' * d['details'].get('level')} {d['details'].get('tags')}"
+                                    )
+                                case "RecruitTagsDetected":
+                                    logger.info(
+                                        f"[公招] 检测到标签 {d['details'].get('tags')}"
+                                    )
+                                case "RecruitSpecialTag":
+                                    logger.info(
+                                        f"[公招] 检测到标签 {'★' * d['details'].get('tag')}"
+                                    )
+                                case "RecruitRobotTag":
+                                    logger.info(
+                                        f"[公招] 检测到标签 {'★' * d['details'].get('tag')}"
+                                    )
+                                case "RecruitTagsRefreshed":
+                                    logger.info("[公招] 刷新")
+                                # 基建
+                                case "CustomInfrastRoomOperators":
+                                    logger.info(
+                                        f"[基建] {d['details'].get('facility')}@{d['details'].get('index')}: "
+                                        f"{d['details'].get('names')}"
+                                    )
+                                # 仓库扫描
+                                case "DepotInfo":
+                                    if d["details"]["done"]:
+                                        logger.info(
+                                            f"[仓库] arkplanner {d['details']['arkplanner']['data']}"
+                                        )
+                                        logger.info(
+                                            f"[仓库] lolicon {d['details']['lolicon']['data']}"
+                                        )
 
                     logger.debug(json.dumps({"msg": str(m), "details": d}))
                 except Exception:
@@ -124,8 +132,9 @@ class MaaProxy:
             path=consts.MAA_CORE_DIR, incremental_path=consts.MAA_CORE_DIR / "cache"
         )
         asst = Asst(callback=asst_callback)
+        # TODO make it configurable
         asst.set_instance_option(InstanceOptionType.touch_type, "maatouch")
-        if not asst.connect("adb", device, "GeneralWithoutScreencapErr"):
+        if not asst.connect("adb", device, "CompatPOSIXShellWithoutScreencapErr"):
             logger.error(f"Failed to connect {device}")
             raise Exception(f"Failed to connect {device}")
 
@@ -164,7 +173,7 @@ class MaaProxy:
         return self.parent_conn.recv()
 
     def start(self) -> bool:
-        self.parent_conn.send(("stop", ()))
+        self.parent_conn.send(("start", ()))
         return self.parent_conn.recv()
 
     def stop(self) -> bool:

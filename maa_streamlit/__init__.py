@@ -50,26 +50,37 @@ def init():
 def run_tasks(
     device: str, tasks: List["config.Task"], force_stop: bool = False
 ) -> bool:
-    """Run tasks, prepend `StartUp`.
+    """Run tasks, prepend `StartUp`. The main control function exposed to UI.
     `force_stop` takes priority under all circumstances. So use with care.
 
     | Maa         | Game        | Action                             | What is happening    |
     |-------------|-------------|------------------------------------|----------------------|
     | Not Running | Not Running | Run Tasks (follow `force_stop`)    | Idle                 |
     | Not Running | Running     | Run Tasks (follow `force_stop`)    | User playing? Idle?  |
-    | Running     | Not Running | Run Tasks (follow `force_stop`)    | Game starting up?    |
-    | Running     | Running     | Run Tasks (follow `force_stop`)    | Running tasks        |
+    | Running     | Not Running | Return or Stop then Run Tasks      | Game starting up?    |
+    | Running     | Running     | Return or Stop then Run Tasks      | Running tasks        |
     """
     maa_proxy = globals.maa_proxy_dict()[device]
     adb_proxy = globals.adb_proxy_dict()[device]
 
-    if maa_proxy.running() and force_stop:
-        if maa_proxy.stop():
-            logger.info(f"Maa core for {device} stopped.")
+    # maa_proxy must **not** be running before start
+    if maa_proxy.running():
+        if force_stop:
+            if maa_proxy.stop():
+                logger.info(f"[Runner] Maa core for {device} is force-stopped.")
+            else:
+                logger.error(f"[Runner] Maa core for {device} failed to stop.")
+                return False
         else:
-            logger.error(f"Maa core for {device} failed to stop.")
+            logger.error(
+                f"[Runner] Maa core for {device} is running while receiving new tasks "
+                "and you did not specify `force_stop`"
+            )
+            return False
+    # app could be running before start
     if adb_proxy.app_running() and force_stop:
         adb_proxy.force_close()
+        logger.info(f"[Runner] App on {device} is force-stopped.")
 
     if tasks[0].type != "StartUp":
         tasks.insert(0, globals.task_dict()["start"])
