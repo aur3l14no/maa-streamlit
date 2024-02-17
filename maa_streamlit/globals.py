@@ -5,6 +5,7 @@ from collections import OrderedDict
 from typing import List
 
 import streamlit as st
+from loguru import logger
 
 import maa
 import maa_streamlit
@@ -13,7 +14,6 @@ __all__ = [
     "task_dict",
     "tasksets",
     "managed_devices",
-    "adb_devices",
     "maa_proxy_dict",
     "adb_proxy_dict",
 ]
@@ -31,22 +31,23 @@ def tasksets() -> List[maa_streamlit.config.TaskSet]:
 
 
 @st.cache_data
-def managed_devices() -> List[str]:
-    devices = [taskset.asst.device for taskset in tasksets()]
-    return [d for d in OrderedDict.fromkeys(devices) if d in adb_devices()]
+def managed_devices() -> List[maa_streamlit.config.Device]:
+    devices = [taskset.device for taskset in tasksets()]
+    return [d for d in OrderedDict.fromkeys(devices)]
 
 
-@st.cache_data
-def adb_devices() -> List[str]:
-    res = sp.check_output(["adb", "devices"], encoding="utf8")
-    return [line.split()[0] for line in res.strip().splitlines()[1:]]
+# @st.cache_data
+# def adb_devices() -> List[str]:
+#     res = sp.check_output(["adb", "devices"], encoding="utf8")
+#     return [line.split()[0] for line in res.strip().splitlines()[1:]]
 
 
 @st.cache_resource
-def maa_proxy_dict() -> dict[str, maa.MaaProxy]:
+def maa_proxy_dict() -> dict[maa_streamlit.config.Device, maa.MaaProxy]:
+    logger.warning(managed_devices())
     return {device: maa.MaaProxy(device) for device in managed_devices()}
 
 
 @st.cache_resource
-def adb_proxy_dict() -> dict[str, maa_streamlit.adb.AdbProxy]:
+def adb_proxy_dict() -> dict[maa_streamlit.config.Device, maa_streamlit.adb.AdbProxy]:
     return {device: maa_streamlit.adb.AdbProxy(device) for device in managed_devices()}

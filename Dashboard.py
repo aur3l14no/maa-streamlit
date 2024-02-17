@@ -54,7 +54,7 @@ if __name__ == "__main__":
     st.title("Live Dashboard")
 
     for device in maa_streamlit.globals.managed_devices():
-        st.markdown(f"## {device}")
+        st.markdown(f"## {device.name}")
         maa_proxy = maa_streamlit.globals.maa_proxy_dict()[device]
         adb_proxy = maa_streamlit.globals.adb_proxy_dict()[device]
 
@@ -128,7 +128,7 @@ if __name__ == "__main__":
             tasksets = [
                 taskset
                 for taskset in maa_streamlit.globals.tasksets()
-                if taskset.asst.device == device
+                if taskset.device == device
             ]
             # TODO allow dynamic config?
             for taskset in tasksets:
@@ -149,7 +149,7 @@ if __name__ == "__main__":
 
         with col_log:
             st.markdown("#### Log")
-            path = maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device}.log"
+            path = maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.log"
             if path.exists():
                 st.code(
                     maa_streamlit.utils.last_n_lines(path.read_text(), 30),

@@ -39,13 +39,27 @@ class Task(BaseModel):
         return cls.model_validate({"use": name})
 
 
-class TaskSet(BaseModel):
-    class AsstConfig(BaseModel):
-        device: str
+class Device(BaseModel):
+    name: str
+    address: str
+    config: str  # https://github.com/MaaAssistantArknights/MaaAssistantArknights/edit/dev/resource/config.json
 
+    def __key(self):
+        return (self.name, self.address, self.config)
+
+    def __hash__(self):
+        return hash(self.__key())
+
+    def __eq__(self, other):
+        if isinstance(other, Device):
+            return self.__key() == other.__key()
+        return NotImplemented
+
+
+class TaskSet(BaseModel):
     name: str
     tasks: List[Task]
-    asst: AsstConfig
+    device: Device
     schedule: Optional[dt.time] = None
     enable: bool = False
 

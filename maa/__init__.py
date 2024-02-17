@@ -2,12 +2,10 @@ import json
 import multiprocessing as mp
 
 import maa_streamlit
-import maa_streamlit.adb
-import maa_streamlit.consts as consts
 
 
 class MaaProxy:
-    def __init__(self, device):
+    def __init__(self, device: maa_streamlit.config.Device):
         self.device = device
         ctx = mp.get_context("spawn")
         self.parent_conn, self.child_conn = ctx.Pipe()
@@ -15,39 +13,36 @@ class MaaProxy:
             target=MaaProxy.target, args=(device, self.child_conn), daemon=True
         )
         self.process.start()
+        self.log_path = None
 
     @staticmethod
-    def target(device, child_conn: mp.Pipe):
+    def target(device: maa_streamlit.config.Device, child_conn: mp.Pipe):
         # logger
         from loguru import logger
 
         from .asst.asst import Asst
         from .asst.utils import InstanceOptionType, Message
 
-        logger = logger.bind(device=device)
+        logger = logger.bind(device=device.name)
         logger.add(
-            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device}.log",
+            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.log",
             level="INFO",
             rotation="1 day",
             retention=2,
-            format=consts.CONCISE_LOGGER_FORMAT,
+            format=maa_streamlit.consts.CONCISE_LOGGER_FORMAT,
             enqueue=True,
-            # filter=lambda record, device=device: record["extra"].get("device")
-            # == device,
         )
         logger.add(
-            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device}.debug.log",
+            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.debug.log",
             level="DEBUG",
             rotation="1 day",
             retention=2,
-            format=consts.LOGGER_FORMAT,
+            format=maa_streamlit.consts.LOGGER_FORMAT,
             enqueue=True,
-            # filter=lambda record, device=device: record["extra"].get("device")
-            # == device,
         )
 
         # callback
-        def make_callback(device):
+        def make_callback():
             # TODO improve callback
             # ref https://github.com/MaaAssistantArknights/maa-cli/blob/main/maa-cli/src/run/callback/mod.rs
             # ref https://github.com/MaaAssistantArknights/maa-cli/blob/main/maa-cli/src/run/callback/summary.rs
@@ -125,18 +120,19 @@ class MaaProxy:
 
             return Asst.CallBackType(my_callback)
 
-        asst_callback = make_callback(device)
+        asst_callback = make_callback()
 
         # core
         Asst.load(
-            path=consts.MAA_CORE_DIR, incremental_path=consts.MAA_CORE_DIR / "cache"
+            path=maa_streamlit.consts.MAA_CORE_DIR,
+            incremental_path=maa_streamlit.consts.MAA_CORE_DIR / "cache",
         )
         asst = Asst(callback=asst_callback)
         # TODO make it configurable
         asst.set_instance_option(InstanceOptionType.touch_type, "maatouch")
-        if not asst.connect("adb", device, "CompatPOSIXShellWithoutScreencapErr"):
-            logger.error(f"Failed to connect {device}")
-            raise Exception(f"Failed to connect {device}")
+        if not asst.connect("adb", device.address, device.config):
+            logger.error(f"Failed to connect {json.dumps(device)}")
+            raise Exception(f"Failed to connect {json.dumps(device)}")
 
         # work loop
         try:
@@ -198,14 +194,16 @@ def update_core():
     from .asst.updater import Updater
     from .asst.utils import Version
 
-    Updater(consts.MAA_CORE_DIR, Version.Beta).update()
+    Updater(maa_streamlit.consts.MAA_CORE_DIR, Version.Beta).update()
 
 
 def update_ota():
     import urllib
 
     ota_tasks_url = "https://ota.maa.plus/MaaAssistantArknights/api/resource/tasks.json"
-    ota_tasks_path = consts.MAA_CORE_DIR / "cache" / "resource" / "tasks.json"
+    ota_tasks_path = (
+        maa_streamlit.consts.MAA_CORE_DIR / "cache" / "resource" / "tasks.json"
+    )
     ota_tasks_path.parent.mkdir(parents=True, exist_ok=True)
     with open(ota_tasks_path, "w", encoding="utf-8") as f:
         with urllib.request.urlopen(ota_tasks_url) as u:

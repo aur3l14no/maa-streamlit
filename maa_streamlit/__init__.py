@@ -48,7 +48,9 @@ def init():
 
 
 def run_tasks(
-    device: str, tasks: List["config.Task"], force_stop: bool = False
+    device: "config.Device",
+    tasks: List["config.Task"],
+    force_stop: bool = False,
 ) -> bool:
     """Run tasks, prepend `StartUp`. The main control function exposed to UI.
     `force_stop` takes priority under all circumstances. So use with care.
@@ -67,24 +69,24 @@ def run_tasks(
     if maa_proxy.running():
         if force_stop:
             if maa_proxy.stop():
-                logger.info(f"[Runner] Maa core for {device} is force-stopped.")
+                logger.info(f"[Runner] Maa core for {device.name} is force-stopped.")
             else:
-                logger.error(f"[Runner] Maa core for {device} failed to stop.")
+                logger.error(f"[Runner] Maa core for {device.name} failed to stop.")
                 return False
         else:
             logger.error(
-                f"[Runner] Maa core for {device} is running while receiving new tasks "
+                f"[Runner] Maa core for {device.name} is running while receiving new tasks "
                 "and you did not specify `force_stop`"
             )
             return False
     # app could be running before start
     if adb_proxy.app_running() and force_stop:
         adb_proxy.force_close()
-        logger.info(f"[Runner] App on {device} is force-stopped.")
+        logger.info(f"[Runner] App on {device.name} is force-stopped.")
 
     if tasks[0].type != "StartUp":
         tasks.insert(0, globals.task_dict()["start"])
     for task in tasks:
         maa_proxy.append_task(task.type, task.params)
-    logger.info(f"Run tasks: {device} {tasks}")
+    logger.info(f"Run tasks: {device.name} {tasks}")
     return maa_proxy.start()
