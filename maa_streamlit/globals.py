@@ -44,7 +44,6 @@ def managed_devices() -> List[maa_streamlit.config.Device]:
 
 @st.cache_resource
 def maa_proxy_dict() -> dict[maa_streamlit.config.Device, maa.MaaProxy]:
-    logger.warning(managed_devices())
     return {device: maa.MaaProxy(device) for device in managed_devices()}
 
 

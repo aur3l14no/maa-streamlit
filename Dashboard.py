@@ -1,34 +1,9 @@
-import hmac
-
 import streamlit as st
+import tomllib
+from streamlit_authenticator import Authenticate
 from streamlit_autorefresh import st_autorefresh
 
 import maa_streamlit
-
-
-# Auth
-def check_password():
-    """Returns `True` if the user had the correct password."""
-
-    def password_entered():
-        """Checks whether a password entered by the user is correct."""
-        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]  # Don't store the password.
-        else:
-            st.session_state["password_correct"] = False
-
-    # Return True if the password is validated.
-    if st.session_state.get("password_correct", False):
-        return True
-
-    # Show input for password.
-    st.text_input(
-        "Password", type="password", on_change=password_entered, key="password"
-    )
-    if "password_correct" in st.session_state:
-        st.error("😕 Password incorrect")
-    return False
 
 
 @st.cache_resource
@@ -44,7 +19,19 @@ if __name__ == "__main__":
         initial_sidebar_state="collapsed",
     )
 
-    if not check_password():
+    auth_config = tomllib.loads(
+        (maa_streamlit.config.CONFIG_DIR / "auth.toml").read_text()
+    )
+    authenticator = Authenticate(
+        auth_config["credentials"],
+        auth_config["cookie"]["name"],
+        auth_config["cookie"]["key"],
+        auth_config["cookie"]["expiry_days"],
+    )
+
+    name, authentication_status, username = authenticator.login()
+
+    if not st.session_state["authentication_status"]:
         st.stop()
 
     init_maa_streamlit()
