@@ -86,15 +86,15 @@ class MaaProxy:
                                     )
                                 case "RecruitTagsDetected":
                                     logger.info(
-                                        f"[公招] 检测到标签 {d['details'].get('tags')}"
+                                        f"[公招] 标签 {d['details'].get('tags')}"
                                     )
                                 case "RecruitSpecialTag":
                                     logger.info(
-                                        f"[公招] 检测到标签 {'★' * d['details'].get('tag')}"
+                                        f"[公招] 特殊标签 {d['details'].get('tag')}"
                                     )
                                 case "RecruitRobotTag":
                                     logger.info(
-                                        f"[公招] 检测到标签 {'★' * d['details'].get('tag')}"
+                                        f"[公招] 机械标签 {d['details'].get('tag')}"
                                     )
                                 case "RecruitTagsRefreshed":
                                     logger.info("[公招] 刷新")
