@@ -4,7 +4,7 @@ from typing import Any, List, Optional
 
 import tomllib
 from deepmerge import Merger
-from pydantic import BaseModel, model_validator
+from pydantic import BaseModel, ConfigDict, model_validator
 
 CONFIG_DIR = pathlib.Path("config")
 
@@ -40,20 +40,11 @@ class Task(BaseModel):
 
 
 class Device(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
     name: str
     address: str
     config: str  # https://github.com/MaaAssistantArknights/MaaAssistantArknights/edit/dev/resource/config.json
-
-    def __key(self):
-        return (self.name, self.address, self.config)
-
-    def __hash__(self):
-        return hash(self.__key())
-
-    def __eq__(self, other):
-        if isinstance(other, Device):
-            return self.__key() == other.__key()
-        return NotImplemented
 
 
 class TaskSet(BaseModel):
