@@ -1,23 +1,23 @@
-import streamlit as st
-import tomllib
-from streamlit_authenticator import Authenticate
-from streamlit_autorefresh import st_autorefresh
-
-import maa_streamlit
-
-
-@st.cache_resource
-def init_maa_streamlit():
-    maa_streamlit.init()
-
-
 if __name__ == "__main__":
+    import streamlit as st
+    import tomllib
+    from streamlit_authenticator import Authenticate
+    from streamlit_autorefresh import st_autorefresh
+
+    import maa_streamlit
+
+    @st.cache_resource
+    def init_maa_streamlit():
+        maa_streamlit.init()
+
     st.set_page_config(
         page_title="MaaS",
         page_icon="⛵︎",
         layout="wide",
         initial_sidebar_state="collapsed",
     )
+
+    init_maa_streamlit()
 
     auth_config = tomllib.loads(
         (maa_streamlit.config.CONFIG_DIR / "auth.toml").read_text()
@@ -44,6 +44,15 @@ if __name__ == "__main__":
         st.markdown(f"## {device.name}")
         maa_proxy = maa_streamlit.globals.maa_proxy_dict()[device]
         adb_proxy = maa_streamlit.globals.adb_proxy_dict()[device]
+        # except Exception as e:
+        #     # debug
+        #     maa_streamlit.logger.error(
+        #         f"maa_proxy_dict: {maa_streamlit.globals.maa_proxy_dict()}"
+        #     )
+        #     maa_streamlit.logger.error(
+        #         f"adb_proxy_dict: {maa_streamlit.globals.adb_proxy_dict()}"
+        #     )
+        #     raise e
 
         col_img, col_ctrl, col_log = st.columns(3)
 
