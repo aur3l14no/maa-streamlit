@@ -17,8 +17,9 @@ logger.add(
 def init():
     import maa
 
-    maa.update_core()
-    maa.update_ota()
+    updater = maa.MaaUpdater()
+    updater.update_core()
+    updater.update_ota()
 
     # init globals
     for obj in [getattr(globals, name) for name in globals.__all__]:

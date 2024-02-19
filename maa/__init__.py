@@ -1,5 +1,6 @@
 import json
 import multiprocessing as mp
+import threading
 
 import maa_streamlit
 
@@ -14,6 +15,7 @@ class MaaProxy:
         )
         self.process.start()
         self.log_path = None
+        self.lock = threading.Lock()
 
     @staticmethod
     def target(device: maa_streamlit.config.Device, child_conn: mp.Pipe):
@@ -158,53 +160,67 @@ class MaaProxy:
         except KeyboardInterrupt:
             logger.warning("Ctrl-C, Goodbye~")
             pass
+        except Exception as e:
+            logger.error(f"Uncaught error {e}")
 
     def append_task(self, task, params) -> int:
-        self.parent_conn.send(
-            (
-                "append_task",
-                (task, params),
+        with self.lock:
+            self.parent_conn.send(
+                (
+                    "append_task",
+                    (task, params),
+                )
             )
-        )
-        return self.parent_conn.recv()
+            return self.parent_conn.recv()
 
     def start(self) -> bool:
-        self.parent_conn.send(("start", ()))
-        return self.parent_conn.recv()
+        with self.lock:
+            self.parent_conn.send(("start", ()))
+            return self.parent_conn.recv()
 
     def stop(self) -> bool:
-        self.parent_conn.send(("stop", ()))
-        return self.parent_conn.recv()
+        with self.lock:
+            self.parent_conn.send(("stop", ()))
+            return self.parent_conn.recv()
 
     def running(self) -> bool:
-        self.parent_conn.send(("running", ()))
-        return self.parent_conn.recv()
+        with self.lock:
+            self.parent_conn.send(("running", ()))
+            return self.parent_conn.recv()
 
     def shutdown(self) -> bool:
-        if not self.stop():
-            return False
-        self.parent_conn.send(("shutdown", ()))
-        if not self.parent_conn.recv():
-            return False
-        self.process.join(5)
-        return self.process.exitcode == 0
+        with self.lock:
+            if not self.stop():
+                return False
+            self.parent_conn.send(("shutdown", ()))
+            if not self.parent_conn.recv():
+                return False
+            self.process.join(5)
+            return self.process.exitcode == 0
 
 
-def update_core():
-    from .asst.updater import Updater
-    from .asst.utils import Version
+class MaaUpdater:
+    def __init__(self) -> None:
+        self.lock = threading.Lock()
 
-    Updater(maa_streamlit.consts.MAA_CORE_DIR, Version.Beta).update()
+    def update_core(self):
+        from .asst.updater import Updater
+        from .asst.utils import Version
 
+        with self.lock:
+            Updater(maa_streamlit.consts.MAA_CORE_DIR, Version.Beta).update()
 
-def update_ota():
-    import urllib
+    def update_ota(self):
+        import urllib
 
-    ota_tasks_url = "https://ota.maa.plus/MaaAssistantArknights/api/resource/tasks.json"
-    ota_tasks_path = (
-        maa_streamlit.consts.MAA_CORE_DIR / "cache" / "resource" / "tasks.json"
-    )
-    ota_tasks_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(ota_tasks_path, "w", encoding="utf-8") as f:
-        with urllib.request.urlopen(ota_tasks_url) as u:
-            f.write(u.read().decode("utf-8"))
+        with self.lock:
+            ota_tasks_url = (
+                "https://ota.maa.plus/MaaAssistantArknights/api/resource/tasks.json"
+            )
+            ota_tasks_path = (
+                maa_streamlit.consts.MAA_CORE_DIR / "cache" / "resource" / "tasks.json"
+            )
+            ota_tasks_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(ota_tasks_path, "w", encoding="utf-8") as f:
+                with urllib.request.urlopen(ota_tasks_url) as u:
+                    f.write(u.read().decode("utf-8"))
