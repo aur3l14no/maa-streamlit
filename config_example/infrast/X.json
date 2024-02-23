@@ -1,0 +1,19 @@
+{
+  "author": "",
+  "description": "新手",
+  "id": 1,
+  "title": "243三班倒",
+  "buildingType": 243,
+  "planTimes": "3班",
+  "plans": [
+    {
+      "name": "白班",
+      "description": "16H最高效率长班",
+      "Fiammetta": {
+        "enable": false,
+        "target": "",
+        "order": "pre"
+      }
+    }
+  ]
+}

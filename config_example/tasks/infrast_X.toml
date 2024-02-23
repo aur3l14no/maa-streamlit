@@ -1,0 +1,8 @@
+type = "Infrast"
+
+[params]
+enable = true
+mode = 10000
+filename = "/home/user/my-repos/maa-streamlit/config/infrast/X.json"
+facility = ["Trade", "Mfg", "Reception", "Power", "Control", "Office", "Dorm"]
+dorm_trust_enabled = true

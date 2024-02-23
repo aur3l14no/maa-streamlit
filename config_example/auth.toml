@@ -1,0 +1,9 @@
+[credentials.usernames.user]
+email = ""
+name = ""
+password = ""
+
+[cookie]
+expiry_days = 30
+key = ""
+name = ""

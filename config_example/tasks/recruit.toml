@@ -1,0 +1,9 @@
+type = "Recruit"
+
+[params]
+refresh = true
+select = [4]
+confirm = [3, 4]
+recruitment_time = { "3" = 460 }
+times = 4
+extra_tags_mode = 2

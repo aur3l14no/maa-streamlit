@@ -1,0 +1,5 @@
+type = "StartUp"
+
+[params]
+start_game_enabled = true
+client_type = "Official"

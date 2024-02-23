@@ -1,0 +1,7 @@
+type = "Infrast"
+
+[params]
+enable = true
+mode = 0
+facility = ["Trade", "Mfg", "Reception", "Power", "Control", "Office", "Dorm"]
+dorm_trust_enabled = true

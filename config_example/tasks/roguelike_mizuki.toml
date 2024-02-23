@@ -1,0 +1,10 @@
+type = "Roguelike"
+
+[params]
+theme = "Mizuki"
+mode = 0
+squad = "指挥分队"
+roles = "取长补短"
+core_char = "百炼嘉维尔"
+use_support = true
+use_nonfriend_support = true

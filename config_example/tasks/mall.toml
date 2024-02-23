@@ -1,0 +1,5 @@
+type = "Mall"
+
+[params]
+buy_first = ["招聘许可", "龙门币"]
+blacklist = ["加急许可", "家具零件", "碳素"]

@@ -4,19 +4,22 @@ Yet another maa frontend built with streamlit.
 
 ![Device Panel](screenshots/dashboard.png)
 
-## Usage
+## Quick Start
 
 1. Install dependencies using poetry.
 2. Fill in config files. You may use `config_example` as reference.
    Note that config is similar but nonetheless **different** from that of maa-cli. Please see next section for details.
 
+### Functions
+
+1. Run Tasks: Run tasks in order, only if no maa instance is running.
+2. Scheduled Taskset: Run taskset at specific time of day. Currently only HH:MM is supported. More complex conditions are not implemented (PR welcome).
 
 ## Config
 
 ### Tasks
 
 Basically the same as maa-cli, but **no** variant or input is available.
-
 
 ### Taskset
 
