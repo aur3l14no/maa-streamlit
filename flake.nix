@@ -3,6 +3,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
+    nix2container.url = "github:nlewo/nix2container";
+    nix2container.inputs.nixpkgs.follows = "nixpkgs";
+    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
   };
 
   nixConfig = {
@@ -49,7 +52,8 @@
                   enterShell = ''
                   '';
 
-                  # processes.run.exec = "hello";
+                  processes.run.exec = "python run Dashboard.py";
+
                   dotenv.disableHint = true;
                 }
               ];
