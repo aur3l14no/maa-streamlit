@@ -1,3 +1,4 @@
+import time
 from typing import List
 
 from loguru import logger
@@ -67,10 +68,12 @@ def run_tasks(
     adb_proxy = globals.adb_proxy_dict()[device]
 
     # maa_proxy must **not** be running before start
-    if maa_proxy.running():
+    while maa_proxy.running():
         if force_stop:
             if maa_proxy.stop():
                 logger.info(f"[Runner] Maa core for {device.name} is force-stopped.")
+                # fix: sometimes maa core hangs there for a few seconds and blocks following executions
+                time.sleep(1)
             else:
                 logger.error(f"[Runner] Maa core for {device.name} failed to stop.")
                 return False
