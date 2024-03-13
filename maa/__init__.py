@@ -71,6 +71,9 @@ class MaaProxy:
                                     logger.info("[肉鸽] +1")
                                 case "OfflineConfirm":
                                     logger.info("[游戏] 掉线")
+                                case "Reclamation2Begin":
+                                    if d["details"].get("exec_times") == 1:
+                                        logger.info("[演算] +1")
                         case Message.ConnectionInfo:
                             match d["what"]:
                                 case "Connected":
