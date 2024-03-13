@@ -13,7 +13,7 @@ from . import logger
 
 class AdbProxy:
     ARKNIGHTS_BUNDLE_NAME = "com.hypergryph.arknights"
-    TTL = "10s"
+    TTL = "8s"
 
     def __init__(self, device: "maa_streamlit.config.Device") -> None:
         self.device = device
