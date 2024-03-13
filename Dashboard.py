@@ -1,4 +1,6 @@
 if __name__ == "__main__":
+    import threading
+
     import streamlit as st
     import tomllib
     from streamlit_authenticator import Authenticate
@@ -7,8 +9,13 @@ if __name__ == "__main__":
     import maa_streamlit
 
     @st.cache_resource
+    def init_maa_streamlit_lock():
+        return threading.Lock()
+
+    @st.cache_resource
     def init_maa_streamlit():
-        maa_streamlit.init()
+        with init_maa_streamlit_lock():
+            maa_streamlit.init()
 
     st.set_page_config(
         page_title="MaaS",
@@ -16,8 +23,6 @@ if __name__ == "__main__":
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-
-    init_maa_streamlit()
 
     auth_config = tomllib.loads(
         (maa_streamlit.config.CONFIG_DIR / "auth.toml").read_text()
