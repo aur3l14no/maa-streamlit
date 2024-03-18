@@ -22,7 +22,7 @@ def task_dict() -> dict[str, maa_streamlit.config.Task]:
     return {task.name: task for task in tasks}
 
 
-@st.cache_data
+@st.cache_resource
 def tasksets() -> List[maa_streamlit.config.TaskSet]:
     return maa_streamlit.config.load_all_tasksets()
 

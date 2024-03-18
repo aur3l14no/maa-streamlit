@@ -1,4 +1,5 @@
 if __name__ == "__main__":
+    import datetime as dt
     import threading
 
     import streamlit as st
@@ -133,6 +134,38 @@ if __name__ == "__main__":
             ]
             # TODO allow dynamic config?
             for taskset in tasksets:
+                col_name, col_schedule, col_start = st.columns(3)
+                with col_name:
+                    st.markdown(f"**{taskset.name}**")
+                with col_schedule:
+
+                    def handle_toggle_schedule(taskset: maa_streamlit.config.TaskSet):
+                        taskset.enable = not taskset.enable
+
+                    if taskset.schedule:
+                        st.toggle(
+                            str(taskset.schedule),
+                            on_change=handle_toggle_schedule,
+                            args=(taskset,),
+                            key=f"{taskset.device}/{taskset.name}/schedule",
+                            value=taskset.enable,
+                        )
+                with col_start:
+
+                    def handle_start_taskset(
+                        taskset: maa_streamlit.config.TaskSet,
+                    ):
+                        maa_streamlit.run_tasks(taskset.device, taskset.tasks)
+                        maa_streamlit.schedule.scheduled_tasks_stats_dict()[
+                            taskset.name
+                        ] = dt.datetime.now()
+
+                    st.button(
+                        "start",
+                        on_click=handle_start_taskset,
+                        args=(taskset,),
+                        key=f"{taskset.device}/{taskset.name}/start",
+                    )
                 tasks_str = " | ".join(
                     [
                         task.name
@@ -143,7 +176,7 @@ if __name__ == "__main__":
                     ]
                 )
                 st.markdown(
-                    f"{'🟩' if taskset.enable else '🟥'} **[{taskset.name}] @ {taskset.schedule}**\n\n"
+                    # f"{'🟩' if taskset.enable else '🟥'} **[{taskset.name}] @ {taskset.schedule}**\n\n"
                     f"last: {maa_streamlit.schedule.scheduled_tasks_stats_dict()[taskset.name]}\n\n"
                     f"{' | '.join([task.name if task.params == maa_streamlit.globals.task_dict()[task.name].params else task.name + '*' for task in taskset.tasks])}"
                 )
