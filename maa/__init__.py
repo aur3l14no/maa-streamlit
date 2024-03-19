@@ -6,7 +6,7 @@ import maa_streamlit
 
 
 class MaaProxy:
-    def __init__(self, device: maa_streamlit.config.Device):
+    def __init__(self, device: maa_streamlit.data.Device):
         self.device = device
         ctx = mp.get_context("spawn")
         self.parent_conn, self.child_conn = ctx.Pipe()
@@ -18,7 +18,7 @@ class MaaProxy:
         self.lock = threading.Lock()
 
     @staticmethod
-    def target(device: maa_streamlit.config.Device, child_conn: mp.Pipe):
+    def target(device: maa_streamlit.data.Device, child_conn: mp.Pipe):
         # logger
         from loguru import logger
 
@@ -29,7 +29,7 @@ class MaaProxy:
         logger.add(
             maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.log",
             level="INFO",
-            rotation="1 day",
+            rotation="00:00",
             retention=2,
             format=maa_streamlit.consts.CONCISE_LOGGER_FORMAT,
             enqueue=True,
@@ -37,7 +37,7 @@ class MaaProxy:
         logger.add(
             maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.debug.log",
             level="DEBUG",
-            rotation="1 day",
+            rotation="00:00",
             retention=2,
             format=maa_streamlit.consts.LOGGER_FORMAT,
             enqueue=True,

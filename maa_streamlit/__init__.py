@@ -1,9 +1,8 @@
 import time
-from typing import List
 
 from loguru import logger
 
-from . import adb, config, consts, globals, schedule, utils  # noqa: F401
+from . import adb, consts, data, globals, schedule, utils  # noqa: F401
 
 logger = logger.bind(module="maa_streamlit")
 logger.add(
@@ -50,8 +49,8 @@ def init():
 
 
 def run_tasks(
-    device: "config.Device",
-    tasks: List["config.Task"],
+    device: "data.Device",
+    tasks: list["data.Task"],
     force_stop: bool = False,
 ) -> bool:
     """Run tasks, prepend `StartUp`. The main control function exposed to UI.

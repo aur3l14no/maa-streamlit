@@ -1,5 +1,5 @@
 schedule = "00:10"
-enable = true
+enabled = true
 
 [device]
 name = "X"

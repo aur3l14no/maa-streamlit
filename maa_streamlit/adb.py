@@ -15,7 +15,7 @@ class AdbProxy:
     ARKNIGHTS_BUNDLE_NAME = "com.hypergryph.arknights"
     TTL = "8s"
 
-    def __init__(self, device: "maa_streamlit.config.Device") -> None:
+    def __init__(self, device: "maa_streamlit.data.Device") -> None:
         self.device = device
 
     def _st_hash(self):
