@@ -7,20 +7,20 @@ address = "localhost:5555"
 config = "CompatPOSIXShellWithoutScreencapErr"
 
 [[tasks]]
-use = "start"
+_use = "start"
 
 [[tasks]]
-use = "recruit"
+_use = "recruit"
 
 [[tasks]]
-use = "infrast_X"
+_use = "infrast_X"
 params = { plan_index = 1 }
 
 [[tasks]]
-use = "award"
+_use = "award"
 
 [[tasks]]
-use = "roguelike_mizuki"
+_use = "roguelike_mizuki"
 
 [[tasks]]
-use = "close"
+_use = "close"
