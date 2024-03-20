@@ -46,11 +46,7 @@ def spawn_scheduler_thread() -> threading.Thread:
 
                     maa_streamlit.run_tasks(
                         taskset.device,
-                        [
-                            task
-                            for (i, task) in enumerate(taskset.tasks)
-                            if taskset.tasks_enabled[i]
-                        ],
+                        taskset.tasks,
                         force_stop=FORCE_STOP,
                     )
                     taskset.last_run = dt.datetime.now()

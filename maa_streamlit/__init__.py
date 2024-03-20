@@ -90,6 +90,7 @@ def run_tasks(
     if tasks[0].type != "StartUp":
         tasks.insert(0, globals.task_dict()["start"])
     for task in tasks:
-        maa_proxy.append_task(task.type, task.params)
+        if task.enabled:
+            maa_proxy.append_task(task.type, task.params)
     logger.info(f"Run tasks: {device.name} {tasks}")
     return maa_proxy.start()

@@ -51,12 +51,6 @@ def test_device_in_taskset():
     assert isinstance(devices[0], maa_streamlit.data.Device)
 
 
-def test_tasks_enabled_in_taskset():
-    tasksets = maa_streamlit.data.load_all_tasksets()
-    for taskset in tasksets:
-        assert len(taskset.tasks_enabled) == len(taskset.tasks)
-
-
 def test_tasks_schedule():
     tasksets = maa_streamlit.data.load_all_tasksets()
     # at least one taskset has schedule
@@ -65,3 +59,10 @@ def test_tasks_schedule():
         if taskset.schedule:
             at_least_one = True
     assert at_least_one
+
+
+def test_taskset_tasks_independence():
+    tasksets = maa_streamlit.data.load_all_tasksets()
+    assert tasksets[0].tasks[0].name == tasksets[1].tasks[0].name
+    tasksets[0].tasks[0].enabled = False
+    assert tasksets[1].tasks[0].enabled

@@ -16,7 +16,7 @@ my_merger = Merger(
 )
 
 
-@define(frozen=True, eq=True)
+@define
 class Task:
     """Task. Usually built from dict like
     ```
@@ -28,6 +28,7 @@ class Task:
     name: str
     type: str
     params: dict = {}
+    enabled: bool = True
     _use: str | None = field(repr=False, default=None)
 
     @classmethod
@@ -49,16 +50,12 @@ class Device:
 @define(order=True)
 class TaskSet:
     name: str
-    tasks: list[Task]
     device: Device
-    enabled: bool = False
+    tasks: list[Task] = field(order=False)
+    enabled: bool = field(default=False, order=False)
     schedule: dt.time | None = None
 
     last_run: dt.datetime | None = field(order=False, default=None)
-    tasks_enabled: list[bool] = field(init=False, order=False)
-
-    def __attrs_post_init__(self):
-        self.tasks_enabled = [True] * len(self.tasks)
 
 
 # cattrs

@@ -151,14 +151,7 @@ if __name__ == "__main__":
                         def handle_start_taskset(
                             taskset: maa_streamlit.data.TaskSet,
                         ):
-                            maa_streamlit.run_tasks(
-                                taskset.device,
-                                [
-                                    task
-                                    for (i, task) in enumerate(taskset.tasks)
-                                    if taskset.tasks_enabled[i]
-                                ],
-                            )
+                            maa_streamlit.run_tasks(taskset.device, taskset.tasks)
                             taskset.last_run = dt.datetime.now()
 
                         st.button(
@@ -177,24 +170,21 @@ if __name__ == "__main__":
                     ]
                     with st.expander("..."):
                         for i, task in enumerate(taskset.tasks):
-                            enabled = taskset.tasks_enabled[i]
                             display_name = tasks_display_names[i]
 
                             def handle_toggle_task(
-                                taskset: maa_streamlit.data.TaskSet,
-                                i: int,
+                                task: maa_streamlit.data.Task,
                                 key: str,
                             ):
-                                taskset.tasks_enabled[i] = st.session_state[key]
-                                maa_streamlit.logger.info(taskset.tasks_enabled)
+                                task.enabled = st.session_state[key]
 
                             key = f"{taskset.device}/{taskset.name}/tasks/{task.name}"
                             st.toggle(
                                 display_name,
-                                value=enabled,
+                                value=task.enabled,
                                 key=key,
                                 on_change=handle_toggle_task,
-                                args=(taskset, i, key),
+                                args=(task, key),
                             )
 
             with col_log:
