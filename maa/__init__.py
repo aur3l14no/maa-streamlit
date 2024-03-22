@@ -63,8 +63,8 @@ class MaaProxy:
                             logger.info(f"{m} {d['taskchain']}")
                         case Message.SubTaskCompleted:
                             match d["details"].get("task"):
-                                case "StartButton2":
-                                    logger.info("[作战] +1")
+                                # case "StartButton2":
+                                #     logger.info("[作战] +1")
                                 case "AbandonAction":
                                     logger.info("[作战] 代理失败")
                                 case "StartExplore":
@@ -117,6 +117,22 @@ class MaaProxy:
                                         )
                                         logger.info(
                                             f"[仓库] lolicon {d['details']['lolicon']['data']}"
+                                        )
+                                # 作战
+                                case "StageDrops":
+                                    drops_string = " ".join(
+                                        [
+                                            f"{drops['name']}*{drops['quantity']}"
+                                            for drops in d["details"]["drops"]
+                                        ]
+                                    )
+                                    if d["details"].get("stars") == 3:
+                                        logger.info(
+                                            f"[作战] {d['details']['stage']['stageCode']} {'★' * d['details']['stars']} {drops_string}"
+                                        )
+                                    else:
+                                        logger.warning(
+                                            f"[作战] {d['details']['stage']['stageCode']} {'★' * d['details']['stars']} {drops_string}"
                                         )
 
                     logger.debug(json.dumps({"msg": str(m), "details": d}))
