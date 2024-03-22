@@ -122,11 +122,11 @@ class MaaProxy:
                                 case "StageDrops":
                                     drops_string = " ".join(
                                         [
-                                            f"{drops['name']}*{drops['quantity']}"
-                                            for drops in d["details"]["drops"]
+                                            f"{drop['itemName']}*{drop['quantity']}"
+                                            for drop in d["details"]["drops"]
                                         ]
                                     )
-                                    if d["details"].get("stars") == 3:
+                                    if d['details'].get("stars") == 3:
                                         logger.info(
                                             f"[作战] {d['details']['stage']['stageCode']} {'★' * d['details']['stars']} {drops_string}"
                                         )
@@ -136,7 +136,8 @@ class MaaProxy:
                                         )
 
                     logger.debug(json.dumps({"msg": str(m), "details": d}))
-                except Exception:
+                except Exception as e:
+                    logger.error(e)
                     logger.error(json.dumps({"msg": str(m), "details": d}))
 
             return Asst.CallBackType(my_callback)
