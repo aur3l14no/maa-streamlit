@@ -1,6 +1,6 @@
 {
     "ruff.path": [
-        "${workspaceFolder}/.devenv/profile/bin/ruff"
+        "${workspaceFolder}/.venv/bin/ruff"
     ],
     "evenBetterToml.schema.enabled": false
 }
