@@ -1,11 +1,11 @@
 if __name__ == "__main__":
     import datetime as dt
     import threading
+    import time
 
     import streamlit as st
     import tomllib
     from streamlit_authenticator import Authenticate
-    from streamlit_autorefresh import st_autorefresh
 
     import maa_streamlit
 
@@ -42,12 +42,9 @@ if __name__ == "__main__":
 
     init_maa_streamlit()
 
-    _ = st_autorefresh(10_000, key="dashboard_refresher")
-
-    st.title("Live Dashboard")
-
     devices = maa_streamlit.globals.managed_devices()
     tabs = st.tabs([d.name for d in devices])
+    placeholders = {}
     for device, tab in zip(devices, tabs):
         with tab:
             maa_proxy = maa_streamlit.globals.maa_proxy_dict()[device]
@@ -57,7 +54,7 @@ if __name__ == "__main__":
 
             with col_img:
                 st.markdown("#### Screenshot")
-                st.image(adb_proxy.screenshot())
+                placeholders[f"{device}/screenshot"] = st.empty()
 
             with col_ctrl:
                 st.markdown("#### Status")
@@ -189,12 +186,20 @@ if __name__ == "__main__":
 
             with col_log:
                 st.markdown("#### Log")
+                placeholders[f"{device}/log"] = st.empty()
+    # update loop
+    while True:
+        time.sleep(5)
+        for device in devices:
+            with placeholders[f"{device}/screenshot"]:
+                st.image(adb_proxy.screenshot())
+            with placeholders[f"{device}/log"]:
                 path = (
                     maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.log"
                 )
                 if path.exists():
                     st.code(
-                        maa_streamlit.utils.last_n_lines(path.read_text(), 30),
+                        maa_streamlit.utils.last_n_lines(path.read_text(), 50),
                         language="log",
                     )
                 else:
