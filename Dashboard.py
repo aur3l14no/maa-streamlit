@@ -4,8 +4,6 @@ if __name__ == "__main__":
     import time
 
     import streamlit as st
-    import tomllib
-    from streamlit_authenticator import Authenticate
 
     import maa_streamlit
 
@@ -24,21 +22,6 @@ if __name__ == "__main__":
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-
-    auth_config = tomllib.loads(
-        (maa_streamlit.data.CONFIG_DIR / "auth.toml").read_text()
-    )
-    authenticator = Authenticate(
-        auth_config["credentials"],
-        auth_config["cookie"]["name"],
-        auth_config["cookie"]["key"],
-        auth_config["cookie"]["expiry_days"],
-    )
-
-    name, authentication_status, username = authenticator.login()
-
-    if not st.session_state["authentication_status"]:
-        st.stop()
 
     init_maa_streamlit()
 

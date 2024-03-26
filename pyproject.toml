@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-packages = [{include = "maa_streamlit"}]
+packages = [{ include = "maa_streamlit" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,7 +13,6 @@ psutil = "^5.9.8"
 streamlit-extras = "^0.4.0"
 deepmerge = "^1.1.1"
 loguru = "^0.7.2"
-streamlit-authenticator = "^0.3.1"
 pydantic = "^2.6.4"
 cattrs = "^23.2.3"
 numpy = "^1.26.4"
