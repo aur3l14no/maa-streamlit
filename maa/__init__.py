@@ -51,6 +51,8 @@ class MaaProxy:
             def my_callback(msg, details, _):
                 m = Message(msg)
                 d = json.loads(details.decode("utf-8"))
+                details = d.get("details")
+                what = d.get("what")
                 try:
                     match m:
                         case (
@@ -62,7 +64,7 @@ class MaaProxy:
                         ):
                             logger.info(f"{m} {d['taskchain']}")
                         case Message.SubTaskCompleted:
-                            match d["details"].get("task"):
+                            match details.get("task"):
                                 # case "StartButton2":
                                 #     logger.info("[作战] +1")
                                 case "AbandonAction":
@@ -72,10 +74,10 @@ class MaaProxy:
                                 case "OfflineConfirm":
                                     logger.info("[游戏] 掉线")
                                 case "Reclamation2Begin":
-                                    if d["details"].get("exec_times") == 1:
+                                    if details.get("exec_times") == 1:
                                         logger.info("[演算] +1")
                         case Message.ConnectionInfo:
-                            match d["what"]:
+                            match what:
                                 case "Connected":
                                     logger.info("[ADB] 连接成功")
                                 case "FastestWayToScreencap":
@@ -84,7 +86,7 @@ class MaaProxy:
                                     )
                         case Message.SubTaskExtraInfo:
                             # 公开招募
-                            match d["what"]:
+                            match what:
                                 case "RecruitResult":
                                     logger.info(
                                         f"[公招] 结果 {'★' * d['details'].get('level')} {d['details'].get('tags')}"
@@ -111,7 +113,7 @@ class MaaProxy:
                                     )
                                 # 仓库扫描
                                 case "DepotInfo":
-                                    if d["details"]["done"]:
+                                    if details["done"]:
                                         logger.info(
                                             f"[仓库] arkplanner {d['details']['arkplanner']['data']}"
                                         )
@@ -123,10 +125,10 @@ class MaaProxy:
                                     drops_string = " ".join(
                                         [
                                             f"{drop['itemName']}*{drop['quantity']}"
-                                            for drop in d["details"]["drops"]
+                                            for drop in details["drops"]
                                         ]
                                     )
-                                    if d['details'].get("stars") == 3:
+                                    if d["details"].get("stars") == 3:
                                         logger.info(
                                             f"[作战] {d['details']['stage']['stageCode']} {'★' * d['details']['stars']} {drops_string}"
                                         )
@@ -134,6 +136,19 @@ class MaaProxy:
                                         logger.warning(
                                             f"[作战] {d['details']['stage']['stageCode']} {'★' * d['details']['stars']} {drops_string}"
                                         )
+                                # 理智
+                                case "SanityBeforeStage":
+                                    logger.info(
+                                        f"[理智] {details.get('current_sanity')} / {details.get('max_sanity')}"
+                                    )
+                                case "UseMedicine":
+                                    count = details.get("count")
+                                    if details.get("is_expiring"):
+                                        logger.info(
+                                            f"[理智] 使用 {count} 药水 (即将过期)"
+                                        )
+                                    else:
+                                        logger.info(f"[理智] 使用 {count} 药水")
 
                     logger.debug(json.dumps({"msg": str(m), "details": d}))
                 except Exception as e:
