@@ -36,6 +36,7 @@
               # https://devenv.sh/reference/options/
               packages = [
                 pkgs.android-tools
+                pkgs.gnused
               ];
 
               languages.python = {
