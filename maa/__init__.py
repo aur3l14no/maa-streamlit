@@ -249,7 +249,7 @@ class MaaUpdater:
             Updater(maa_streamlit.consts.MAA_CORE_DIR, Version.Beta).update()
 
     def update_ota(self):
-        import urllib
+        import urllib.request
 
         with self.lock:
             ota_tasks_url = (
