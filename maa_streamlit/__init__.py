@@ -89,6 +89,11 @@ def run_tasks(
 
     if tasks[0].type != "StartUp":
         tasks.insert(0, globals.task_dict()["start"])
+    # if "AutoFight" exists and is enabled
+    # run depot first
+    # calculate fight tasks and replace AutoFight in task list
+    # if any(tasks, lambda task: task.enabled and task.type == "AutoFight"):
+    #     tasks.insert(1, globals.task_dict()["depot"])
     for task in tasks:
         if task.enabled:
             maa_proxy.append_task(task.type, task.params)

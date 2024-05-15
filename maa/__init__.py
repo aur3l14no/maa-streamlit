@@ -120,6 +120,9 @@ class MaaProxy:
                                         logger.info(
                                             f"[仓库] lolicon {d['details']['lolicon']['data']}"
                                         )
+                                        maa_streamlit.globals.inventory_dict()[
+                                            device
+                                        ] = d["details"]["lolicon"]["data"]
                                 # 作战
                                 case "StageDrops":
                                     drops_string = " ".join(
@@ -168,8 +171,8 @@ class MaaProxy:
         # TODO make it configurable
         asst.set_instance_option(InstanceOptionType.touch_type, "maatouch")
         if not asst.connect("adb", device.address, device.config):
-            logger.error(f"Failed to connect {json.dumps(device)}")
-            raise Exception(f"Failed to connect {json.dumps(device)}")
+            logger.error(f"Failed to connect {device.name}")
+            raise Exception(f"Failed to connect {device.name}")
 
         # work loop
         try:

@@ -1,4 +1,5 @@
 """Global (immutable) data using `st.cache`."""
+
 from collections import OrderedDict
 
 import streamlit as st
@@ -44,3 +45,8 @@ def maa_proxy_dict() -> dict[maa_streamlit.data.Device, "maa.MaaProxy"]:
 @st.cache_resource
 def adb_proxy_dict() -> dict[maa_streamlit.data.Device, maa_streamlit.adb.AdbProxy]:
     return {device: maa_streamlit.adb.AdbProxy(device) for device in managed_devices()}
+
+
+@st.cache_resource
+def inventory_dict() -> dict[maa_streamlit.data.Device, dict]:
+    return {device: {} for device in managed_devices()}
