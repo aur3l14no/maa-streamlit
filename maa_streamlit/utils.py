@@ -1,3 +1,4 @@
+import datetime as dt
 import logging
 
 import psutil
@@ -26,3 +27,9 @@ class StreamlitLogHandler(logging.Handler):
 
 def last_n_lines(s, n):
     return "\n".join(s.splitlines()[-n:])
+
+
+def get_arknights_weekday(x: dt.datetime):
+    # 1 = Monday, ...
+    date = x.date() if x.hour >= 4 else x.date() - dt.timedelta(days=1)
+    return date.weekday() + 1

@@ -1,4 +1,6 @@
+import datetime as dt
 import time
+from copy import deepcopy
 
 from loguru import logger
 
@@ -18,7 +20,7 @@ def init():
     import maa
 
     updater = maa.MaaUpdater()
-    updater.update_core()
+    # updater.update_core()
     updater.update_ota()
 
     # init globals
@@ -65,6 +67,7 @@ def run_tasks(
     """
     maa_proxy = globals.maa_proxy_dict()[device]
     adb_proxy = globals.adb_proxy_dict()[device]
+    tasks = deepcopy(tasks)
 
     # maa_proxy must **not** be running before start
     while maa_proxy.running():
@@ -89,11 +92,21 @@ def run_tasks(
 
     if tasks[0].type != "StartUp":
         tasks.insert(0, globals.task_dict()["start"])
-    # if "AutoFight" exists and is enabled
-    # run depot first
-    # calculate fight tasks and replace AutoFight in task list
-    # if any(tasks, lambda task: task.enabled and task.type == "AutoFight"):
-    #     tasks.insert(1, globals.task_dict()["depot"])
+    # replace "AutoFight" with "fight" and stage name
+    autofight_dict = {
+        1: "AP-5",
+        2: "CE-6",
+        3: "CA-5",
+        4: "AP-5",
+        5: "CA-5",
+        6: "AP-5",
+        7: "AP-5",
+    }
+    for task in tasks:
+        if task.type == "AutoFight":
+            task.type = "Fight"
+            weekday = utils.get_arknights_weekday(dt.datetime.now())
+            task.params = {"stage": autofight_dict[weekday]}
     for task in tasks:
         if task.enabled:
             maa_proxy.append_task(task.type, task.params)
