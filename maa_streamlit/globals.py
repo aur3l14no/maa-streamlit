@@ -1,5 +1,6 @@
 """Global (immutable) data using `st.cache`."""
 
+import time
 from collections import OrderedDict
 
 import streamlit as st
@@ -39,7 +40,11 @@ def managed_devices() -> list[maa_streamlit.data.Device]:
 
 @st.cache_resource
 def maa_proxy_dict() -> dict[maa_streamlit.data.Device, "maa.MaaProxy"]:
-    return {device: maa.MaaProxy(device) for device in managed_devices()}
+    res = {}
+    for device in managed_devices():
+        res[device] = maa.MaaProxy(device)
+        time.sleep(1)
+    return res
 
 
 @st.cache_resource
