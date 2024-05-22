@@ -1,0 +1,10 @@
+#!/usr/bin/env fish
+
+# Run emulators
+set -l min_devices 2
+
+if test (adb devices | rg -c "localhost:\d+") -lt $min_devices
+    ~/.local/bin/maa-daemon start
+end
+
+streamlit run Dashboard.py

@@ -1,6 +1,0 @@
-#!/usr/bin/env fish
-
-# Run emulators
-systemctl --user is-active --quiet maa-daemon.service ||  systemctl start --user maa-daemon.service
-
-streamlit run Dashboard.py

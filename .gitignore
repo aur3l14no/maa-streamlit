@@ -9,3 +9,5 @@ __pycache__
 
 .ruff_cache
 .streamlit/secrets.toml
+
+/run
