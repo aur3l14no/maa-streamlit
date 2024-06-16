@@ -1,17 +1,17 @@
 import json
 import multiprocessing
-import os
 import platform
 import re
+import os
 import tarfile
 import zipfile
-from multiprocessing import Process, queues
+from multiprocessing import queues, Process
 from urllib import request
 from urllib.error import HTTPError, URLError
 
-from . import downloader
 from .asst import Asst
 from .utils import Version
+from . import downloader
 
 
 class Updater:
@@ -154,7 +154,7 @@ class Updater:
             assets_name = assets["name"]        # 示例值:MAA-v4.24.0-beta.1-win-arm64.zip
             # 正则匹配（用于选择当前系统及架构的版本）
             # 在线等一个不这么蠢的方法
-            pattern = r"^MAA-.*" + re.escape(system_platform) + r'(?:\.zip|\.tar\.gz)'
+            pattern = r"^MAA-.*-" + re.escape(system_platform) + r"\.(zip|tar\.gz)$"
             match = re.match(pattern, assets_name)
             if match:
                 # Mirrors镜像列表
