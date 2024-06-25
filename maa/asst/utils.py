@@ -9,6 +9,10 @@ class InstanceOptionType(IntEnum):
     deployment_with_pause = 3
 
 
+class StaticOptionType(IntEnum):
+    cpu_ocr = 1
+    gpu_ocr = 2
+
 @unique
 class Message(Enum):
     """

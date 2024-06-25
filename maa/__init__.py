@@ -23,7 +23,7 @@ class MaaProxy:
         from loguru import logger
 
         from .asst.asst import Asst
-        from .asst.utils import InstanceOptionType, Message
+        from .asst.utils import InstanceOptionType, StaticOptionType, Message
 
         logger = logger.bind(device=device.name)
         logger.add(
@@ -167,6 +167,7 @@ class MaaProxy:
             path=maa_streamlit.consts.MAA_CORE_DIR,
             incremental_path=maa_streamlit.consts.MAA_CORE_DIR / "cache",
         )
+        # Asst.set_static_option(StaticOptionType.gpu_ocr, "1")
         asst = Asst(callback=asst_callback)
         # TODO make it configurable
         asst.set_instance_option(InstanceOptionType.touch_type, "maatouch")

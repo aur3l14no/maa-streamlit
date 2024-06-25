@@ -6,7 +6,7 @@ import pathlib
 import platform
 from typing import Union, Optional
 
-from .utils import InstanceOptionType, JSON
+from .utils import InstanceOptionType, StaticOptionType, JSON
 
 
 class Asst:
@@ -109,6 +109,20 @@ class Asst:
         """
         return Asst.__lib.AsstSetInstanceOption(self.__ptr,
                                                 int(option_type), option_value.encode('utf-8'))
+
+    @staticmethod
+    def set_static_option(option_type: StaticOptionType, option_value: str):
+        """
+        设置额外配置
+        参见${MaaAssistantArknights}/src/MaaCore/Assistant.cpp#set_static_option
+
+        :params:
+            ``option_type``:    额外配置类型
+            ``option_value``:   额外配置的值
+
+        :return: 是否设置成功
+        """
+        return Asst.__lib.AsstSetStaticOption(int(option_type), option_value.encode('utf-8'))
 
     def connect(self, adb_path: str, address: str, config: str = 'General'):
         """
@@ -217,6 +231,9 @@ class Asst:
         Asst.__lib.AsstSetInstanceOption.restype = ctypes.c_bool
         Asst.__lib.AsstSetInstanceOption.argtypes = (
             ctypes.c_void_p, ctypes.c_int, ctypes.c_char_p,)
+
+        Asst.__lib.AsstSetStaticOption.restype = ctypes.c_bool
+        Asst.__lib.AsstSetStaticOption.argtypes = (ctypes.c_int, ctypes.c_char_p,)
 
         Asst.__lib.AsstConnect.restype = ctypes.c_bool
         Asst.__lib.AsstConnect.argtypes = (
