@@ -63,7 +63,7 @@ def structure_task(d: dict, cl):
     """Handle `_use`."""
     if use := d.get("_use"):
         path = pathlib.Path(CONFIG_DIR / f"tasks/{use}.toml")
-        toml = tomllib.loads(path.read_text())
+        toml = tomllib.loads(path.read_text(encoding='utf-8'))
         d = my_merger.merge(toml, d)
         if "name" not in d:
             d["name"] = use
@@ -89,7 +89,7 @@ def load_all_tasks() -> list[Task]:
 def load_all_tasksets() -> list[TaskSet]:
     tasksets = []
     for path in (CONFIG_DIR / "tasksets").glob("*.toml"):
-        toml = tomllib.loads(path.read_text())
+        toml = tomllib.loads(path.read_text(encoding='utf-8'))
         if "name" not in toml:
             toml["name"] = path.with_suffix("").name
         tasksets.append(structure(toml, TaskSet))

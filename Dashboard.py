@@ -175,6 +175,6 @@ if __name__ == "__main__":
                 )
                 if path.exists():
                     st.code(
-                        maa_streamlit.utils.last_n_lines(path.read_text(), 50),
+                        maa_streamlit.utils.last_n_lines(path.read_text(encoding='utf-8'), 50),
                         language="log",
                     )
