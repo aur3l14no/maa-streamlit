@@ -2,6 +2,7 @@
 .direnv
 .venv
 
+/data
 /config
 
 __pycache__
