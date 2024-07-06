@@ -47,6 +47,10 @@ class Device:
     config: str  # https://github.com/MaaAssistantArknights/MaaAssistantArknights/edit/dev/resource/config.json
 
 
+@define
+class StaticOption:
+    gpu_ocr: str
+
 @define(order=True)
 class TaskSet:
     name: str
@@ -85,7 +89,6 @@ def load_all_tasks() -> list[Task]:
         tasks.append(Task.from_name(name))
     return tasks
 
-
 def load_all_tasksets() -> list[TaskSet]:
     tasksets = []
     for path in (CONFIG_DIR / "tasksets").glob("*.toml"):
@@ -94,3 +97,8 @@ def load_all_tasksets() -> list[TaskSet]:
             toml["name"] = path.with_suffix("").name
         tasksets.append(structure(toml, TaskSet))
     return tasksets
+
+def load_static_option() -> StaticOption:
+    path = CONFIG_DIR / "static.toml"
+    toml = tomllib.loads(path.read_text(encoding='utf-8'))
+    return structure(toml, StaticOption)

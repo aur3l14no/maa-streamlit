@@ -167,7 +167,8 @@ class MaaProxy:
             path=maa_streamlit.consts.MAA_CORE_DIR,
             incremental_path=maa_streamlit.consts.MAA_CORE_DIR / "cache",
         )
-        # Asst.set_static_option(StaticOptionType.gpu_ocr, "1")
+        static_option = maa_streamlit.globals.static_option()
+        Asst.set_static_option(StaticOptionType.gpu_ocr, static_option.gpu_ocr)
         asst = Asst(callback=asst_callback)
         # TODO make it configurable
         asst.set_instance_option(InstanceOptionType.touch_type, "maatouch")

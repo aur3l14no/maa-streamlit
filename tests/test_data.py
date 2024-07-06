@@ -2,16 +2,16 @@ import maa_streamlit.data
 
 
 def test_load_task_with_name():
-    task = maa_streamlit.data.Task.from_name("roguelike_sami")
+    task = maa_streamlit.data.Task.from_name("roguelike_sami_invest")
     assert task.type == "Roguelike"
-    assert task.name == "roguelike_sami"
+    assert task.name == "roguelike_sami_invest"
     assert task.params != {}
 
 
 def test_load_task_in_taskset():
-    task = maa_streamlit.data.Task.from_dict({"_use": "roguelike_sami"})
+    task = maa_streamlit.data.Task.from_dict({"_use": "roguelike_sami_invest"})
     assert task.type == "Roguelike"
-    assert task.name == "roguelike_sami"
+    assert task.name == "roguelike_sami_invest"
     assert task.params != {}
 
 
@@ -66,3 +66,8 @@ def test_taskset_tasks_independence():
     assert tasksets[0].tasks[0].name == tasksets[1].tasks[0].name
     tasksets[0].tasks[0].enabled = False
     assert tasksets[1].tasks[0].enabled
+
+
+def test_load_static_option():
+    option = maa_streamlit.data.load_static_option()
+    assert option.gpu_ocr == "1"
