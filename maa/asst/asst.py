@@ -113,7 +113,7 @@ class Asst:
     @staticmethod
     def set_static_option(option_type: StaticOptionType, option_value: str):
         """
-        设置额外配置
+        设置进程级参数
         参见${MaaAssistantArknights}/src/MaaCore/Assistant.cpp#set_static_option
 
         :params:
@@ -124,19 +124,18 @@ class Asst:
         """
         return Asst.__lib.AsstSetStaticOption(int(option_type), option_value.encode('utf-8'))
 
-    @staticmethod
-    def set_connection_extras(name: str, extras: str):
+    def set_connection_extras(name: str, extras: JSON):
         """
-        设置额外配置
+        连接模拟器端的Extras
         参见${MaaAssistantArknights}/src/MaaCore/AsstCaller.cpp#AsstSetConnectionExtras
 
         :params:
-            ``option_type``:    额外配置类型
-            ``option_value``:   额外配置的值
+            ``name``:           Extras名称
+            ``extras``:         Extras配置
 
         :return: 是否设置成功
         """
-        return Asst.__lib.AsstSetConnectionExtras(name.encode('utf-8'), extras.encode('utf-8'))
+        return Asst.__lib.AsstSetConnectionExtras(name.encode('utf-8'), json.dumps(extras, ensure_ascii=False).encode('utf-8'))
 
     def connect(self, adb_path: str, address: str, config: str = 'General'):
         """
@@ -223,16 +222,19 @@ class Asst:
         """
         return Asst.__lib.AsstGetVersion().decode('utf-8')
 
-    def get_image(self) -> bytes | None:
+    def get_image(self, size) -> bytes | None:
         """
         获取上次截图
+        :params:
+            ``size``:  图像字节数, 如 1280*720*3
 
-        : return: 长度
+        : return: 成功时图像的字节; 失败时 None
         """
-        buffer = ctypes.create_string_buffer(b'\000' * (1280 * 720 * 3 - 1))
-        print(len(buffer))
-        if (size := Asst.__lib.AsstGetImage(self.__ptr, buffer, len(buffer))) \
-            and size > 0:
+        buffer_type = ctypes.c_byte * size
+        buffer = buffer_type()
+        buffer.value = b'\000' * size
+        if (got := Asst.__lib.AsstGetImage(self.__ptr, buffer, size)) \
+            and got > 0:
             return bytes(buffer)
         else:
             return None

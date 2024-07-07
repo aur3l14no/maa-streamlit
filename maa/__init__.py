@@ -175,9 +175,7 @@ class MaaProxy:
             int(StaticOptionType.gpu_ocr), str(profile.static_options.gpu_ocr)
         )
         # extra_option
-        Asst.set_connection_extras(
-            profile.connection.config, json.dumps(profile.connection_extras)
-        )
+        Asst.set_connection_extras(profile.connection.config, profile.connection_extras)
         # instance_option
         asst = Asst(callback=asst_callback)
         asst.set_instance_option(
@@ -212,7 +210,7 @@ class MaaProxy:
                 elif func == "running":
                     result = asst.running()
                 elif func == "get_image":
-                    result = asst.get_image()
+                    result = asst.get_image(1280 * 720 * 3)
                 child_conn.send(result)
         except KeyboardInterrupt:
             logger.warning("Ctrl-C, Goodbye~")
@@ -258,7 +256,7 @@ class MaaProxy:
     def get_image(self) -> bytes:
         with self.lock:
             self.parent_conn.send(("get_image", ()))
-            return bytes(self.parent_conn.recv())
+            return self.parent_conn.recv()
 
 
 class MaaUpdater:
