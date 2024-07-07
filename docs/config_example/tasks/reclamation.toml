@@ -1,4 +1,6 @@
-type = "Custom"
+type = "ReclamationAlgorithm"
 
 [params]
+theme = 1
+mode = 1
 task_names = ["Reclamation2"]

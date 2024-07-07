@@ -1,10 +1,6 @@
+profile = "X"
 schedule = "00:10"
 enabled = true
-
-[device]
-name = "X"
-address = "localhost:5555"
-config = "CompatPOSIXShellWithoutScreencapErr"
 
 [[tasks]]
 _use = "start"

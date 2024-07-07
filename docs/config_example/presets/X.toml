@@ -1,0 +1,16 @@
+[connection]
+adb_path = "adb"
+device = "localhost:16384"
+config = "MuMuEmulator12"
+
+[connection_extras]
+path = "C:\\Program Files\\Netease\\MuMu Player 12"
+index = 0
+display = 0
+
+[static_options]
+cpu_ocr = false
+gpu_ocr = 1
+
+[instance_options]
+touch_mode = "MAATouch"
