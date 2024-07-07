@@ -4,9 +4,9 @@ import json
 import os
 import pathlib
 import platform
-from typing import Union, Optional
+from typing import Optional, Union
 
-from .utils import InstanceOptionType, StaticOptionType, JSON
+from .utils import JSON, InstanceOptionType, StaticOptionType
 
 
 class Asst:
@@ -124,6 +124,20 @@ class Asst:
         """
         return Asst.__lib.AsstSetStaticOption(int(option_type), option_value.encode('utf-8'))
 
+    @staticmethod
+    def set_connection_extras(name: str, extras: str):
+        """
+        设置额外配置
+        参见${MaaAssistantArknights}/src/MaaCore/AsstCaller.cpp#AsstSetConnectionExtras
+
+        :params:
+            ``option_type``:    额外配置类型
+            ``option_value``:   额外配置的值
+
+        :return: 是否设置成功
+        """
+        return Asst.__lib.AsstSetConnectionExtras(name.encode('utf-8'), extras.encode('utf-8'))
+
     def connect(self, adb_path: str, address: str, config: str = 'General'):
         """
         连接设备
@@ -234,6 +248,9 @@ class Asst:
 
         Asst.__lib.AsstSetStaticOption.restype = ctypes.c_bool
         Asst.__lib.AsstSetStaticOption.argtypes = (ctypes.c_int, ctypes.c_char_p,)
+
+        Asst.__lib.AsstSetConnectionExtras.restype = ctypes.c_void_p
+        Asst.__lib.AsstSetConnectionExtras.argtypes = (ctypes.c_char_p, ctypes.c_char_p,)
 
         Asst.__lib.AsstConnect.restype = ctypes.c_bool
         Asst.__lib.AsstConnect.argtypes = (

@@ -6,28 +6,28 @@ import maa_streamlit
 
 
 class MaaProxy:
-    def __init__(self, device: maa_streamlit.data.Device):
-        self.device = device
+    def __init__(self, profile: maa_streamlit.data.Profile):
+        self.profile = profile
         ctx = mp.get_context("spawn")
         self.parent_conn, self.child_conn = ctx.Pipe()
         self.process = ctx.Process(
-            target=MaaProxy.target, args=(device, self.child_conn), daemon=True
+            target=MaaProxy.target, args=(profile, self.child_conn), daemon=True
         )
         self.process.start()
         self.log_path = None
         self.lock = threading.Lock()
 
     @staticmethod
-    def target(device: maa_streamlit.data.Device, child_conn: mp.Pipe):
+    def target(profile: maa_streamlit.data.Profile, child_conn: mp.Pipe):
         # logger
         from loguru import logger
 
         from .asst.asst import Asst
-        from .asst.utils import InstanceOptionType, StaticOptionType, Message
+        from .asst.utils import InstanceOptionType, Message, StaticOptionType
 
-        logger = logger.bind(device=device.name)
+        logger = logger.bind(profile=profile.name)
         logger.add(
-            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.log",
+            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{profile.name}.log",
             level="INFO",
             rotation="00:00",
             retention=2,
@@ -35,7 +35,7 @@ class MaaProxy:
             enqueue=True,
         )
         logger.add(
-            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.debug.log",
+            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{profile.name}.debug.log",
             level="DEBUG",
             rotation="00:00",
             retention=2,
@@ -120,9 +120,9 @@ class MaaProxy:
                                         logger.info(
                                             f"[仓库] lolicon {d['details']['lolicon']['data']}"
                                         )
-                                        maa_streamlit.globals.inventory_dict()[
-                                            device
-                                        ] = d["details"]["lolicon"]["data"]
+                                        # maa_streamlit.globals.inventory_dict()[
+                                        #     profile.name
+                                        # ] = d["details"]["lolicon"]["data"]
                                 # 作战
                                 case "StageDrops":
                                     drops_string = " ".join(
@@ -167,14 +167,29 @@ class MaaProxy:
             path=maa_streamlit.consts.MAA_CORE_DIR,
             incremental_path=maa_streamlit.consts.MAA_CORE_DIR / "cache",
         )
-        static_option = maa_streamlit.globals.static_option()
-        Asst.set_static_option(StaticOptionType.gpu_ocr, static_option.gpu_ocr)
+        # static_option
+        Asst.set_static_option(
+            int(StaticOptionType.cpu_ocr), str(profile.static_options.cpu_ocr)
+        )
+        Asst.set_static_option(
+            int(StaticOptionType.gpu_ocr), str(profile.static_options.gpu_ocr)
+        )
+        # extra_option
+        Asst.set_connection_extras(
+            profile.connection.config, json.dumps(profile.connection_extras)
+        )
+        # instance_option
         asst = Asst(callback=asst_callback)
-        # TODO make it configurable
-        asst.set_instance_option(InstanceOptionType.touch_type, "maatouch")
-        if not asst.connect("adb", device.address, device.config):
-            logger.error(f"Failed to connect {device.name}")
-            raise Exception(f"Failed to connect {device.name}")
+        asst.set_instance_option(
+            InstanceOptionType.touch_type, profile.instance_options.touch_mode
+        )
+
+        # connection
+        if not asst.connect(
+            "adb", profile.connection.device, profile.connection.config
+        ):
+            logger.error(f"Failed to connect {profile.name}")
+            raise Exception(f"Failed to connect {profile.name}")
 
         # work loop
         try:
@@ -185,7 +200,7 @@ class MaaProxy:
                     logger.error("Received None as func")
                     break
                 elif func == "shutdown":
-                    logger.info(f"Maa worker loop for {device} is shutting down.")
+                    logger.info(f"Maa worker loop for {profile} is shutting down.")
                     child_conn.send(True)
                     break
                 elif func == "append_task":

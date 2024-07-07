@@ -15,37 +15,37 @@ class AdbProxy:
     ARKNIGHTS_BUNDLE_NAME = "com.hypergryph.arknights"
     TTL = "5s"
 
-    def __init__(self, device: "maa_streamlit.data.Device") -> None:
-        self.device = device
+    def __init__(self, profile: "maa_streamlit.data.Profile") -> None:
+        self.profile = profile
 
     def _st_hash(self):
-        return self.device.name
+        return self.profile.name
 
     @st.cache_data(ttl=TTL, hash_funcs={"maa_streamlit.adb.AdbProxy": _st_hash})
     def screenshot(self) -> bytes:
         # can it be faster? we only need a
         time_start = time.time()
         img_bytes = sp.check_output(
-            f'adb -s {self.device.address} exec-out "screencap -p 2>/dev/null"',
+            f'adb -s {self.profile.connection.device} exec-out "screencap -p 2>/dev/null"',
             shell=True,
         )
         img = Image.open(BytesIO(img_bytes))
         img_thumbnail = img.resize((768, 432))
         logger.trace(
-            f"Screenshot of '{self.device.name}' took {time.time() - time_start}"
+            f"Screenshot of '{self.profile.name}' took {time.time() - time_start}"
         )
         return img_thumbnail
 
     def force_close(self) -> None:
         sp.run(
-            f"adb -s {self.device.address} shell 'am force-stop {self.ARKNIGHTS_BUNDLE_NAME} && sleep 1'",
+            f"adb -s {self.profile.connection.device} shell 'am force-stop {self.ARKNIGHTS_BUNDLE_NAME} && sleep 1'",
             shell=True,
         )
 
     def pid(self) -> Optional[int]:
         try:
             pid_s = sp.check_output(
-                f"adb -s {self.device.address} shell pidof {self.ARKNIGHTS_BUNDLE_NAME}",
+                f"adb -s {self.profile.connection.device} shell pidof {self.ARKNIGHTS_BUNDLE_NAME}",
                 shell=True,
                 encoding="utf8",
             )

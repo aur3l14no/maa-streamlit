@@ -51,7 +51,7 @@ def init():
 
 
 def run_tasks(
-    device: "data.Device",
+    profile_name: str,
     tasks: list["data.Task"],
     force_stop: bool = False,
 ) -> bool:
@@ -65,30 +65,30 @@ def run_tasks(
     | Running     | Not Running | Return or Stop then Run Tasks      | Game starting up?    |
     | Running     | Running     | Return or Stop then Run Tasks      | Running tasks        |
     """
-    maa_proxy = globals.maa_proxy_dict()[device]
-    adb_proxy = globals.adb_proxy_dict()[device]
+    maa_proxy = globals.maa_proxy_dict()[profile_name]
+    adb_proxy = globals.adb_proxy_dict()[profile_name]
     tasks = deepcopy(tasks)
 
     # maa_proxy must **not** be running before start
     while maa_proxy.running():
         if force_stop:
             if maa_proxy.stop():
-                logger.info(f"[Runner] Maa core for {device.name} is force-stopped.")
+                logger.info(f"[Runner] Maa core for {profile_name} is force-stopped.")
                 # fix: sometimes maa core hangs there for a few seconds and blocks following executions
                 time.sleep(1)
             else:
-                logger.error(f"[Runner] Maa core for {device.name} failed to stop.")
+                logger.error(f"[Runner] Maa core for {profile_name} failed to stop.")
                 return False
         else:
             logger.error(
-                f"[Runner] Maa core for {device.name} is running while receiving new tasks "
+                f"[Runner] Maa core for {profile_name} is running while receiving new tasks "
                 "and you did not specify `force_stop`"
             )
             return False
     # app could be running before start
     if adb_proxy.app_running() and force_stop:
         adb_proxy.force_close()
-        logger.info(f"[Runner] App on {device.name} is force-stopped.")
+        logger.info(f"[Runner] App on {profile_name} is force-stopped.")
 
     if tasks[0].type != "StartUp":
         tasks.insert(0, globals.task_dict()["start"])
@@ -110,5 +110,5 @@ def run_tasks(
     for task in tasks:
         if task.enabled:
             maa_proxy.append_task(task.type, task.params)
-    logger.info(f"Run tasks: {device.name} {tasks}")
+    logger.info(f"Run tasks: {profile_name} {tasks}")
     return maa_proxy.start()

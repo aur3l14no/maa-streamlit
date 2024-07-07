@@ -37,20 +37,6 @@ def test_load_tasksets():
     assert len(tasksets[0].tasks) > 0
 
 
-def test_device_hash():
-    from collections import OrderedDict
-
-    device_1 = maa_streamlit.data.Device(name="1", address="2", config="3")
-    device_2 = maa_streamlit.data.Device(name="1", address="2", config="3")
-    assert [d for d in OrderedDict.fromkeys([device_1, device_2])] == [device_1]
-
-
-def test_device_in_taskset():
-    tasksets = maa_streamlit.data.load_all_tasksets()
-    devices = [taskset.device for taskset in tasksets]
-    assert isinstance(devices[0], maa_streamlit.data.Device)
-
-
 def test_tasks_schedule():
     tasksets = maa_streamlit.data.load_all_tasksets()
     # at least one taskset has schedule
@@ -68,6 +54,6 @@ def test_taskset_tasks_independence():
     assert tasksets[1].tasks[0].enabled
 
 
-def test_load_static_option():
-    option = maa_streamlit.data.load_static_option()
-    assert option.gpu_ocr == "1"
+def test_load_profiles():
+    profiles = maa_streamlit.data.load_all_profiles()
+    print(profiles)

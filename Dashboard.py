@@ -25,20 +25,20 @@ if __name__ == "__main__":
 
     init_maa_streamlit()
 
-    devices = maa_streamlit.globals.managed_devices()
+    profiles = list(maa_streamlit.globals.profiles().keys())  # NOTE `keys()`
 
-    tabs = st.tabs([d.name for d in devices])
-    for device, tab in zip(devices, tabs):
+    tabs = st.tabs(profiles)
+    for profile, tab in zip(profiles, tabs):
         with tab:
-            maa_proxy = maa_streamlit.globals.maa_proxy_dict()[device]
-            adb_proxy = maa_streamlit.globals.adb_proxy_dict()[device]
+            maa_proxy = maa_streamlit.globals.maa_proxy_dict()[profile]
+            adb_proxy = maa_streamlit.globals.adb_proxy_dict()[profile]
 
             col_img, col_ctrl, col_log = st.columns(3)
 
             with col_img:
                 st.markdown("#### Screenshot")
                 st.image(adb_proxy.screenshot())
-                st.button("⟳", key=f"{device}/refresh")
+                st.button("⟳", key=f"{profile}/refresh")
 
             with col_ctrl:
                 st.markdown("#### Status")
@@ -51,7 +51,7 @@ if __name__ == "__main__":
                 with col_stop:
                     st.button(
                         "stop",
-                        key=f"{device}/app/stop",
+                        key=f"{profile}/app/stop",
                         on_click=lambda maa_proxy, adb_proxy: (
                             maa_proxy.stop(),
                             adb_proxy.force_close(),
@@ -68,35 +68,35 @@ if __name__ == "__main__":
                 with col_stop:
                     st.button(
                         "stop",
-                        key=f"{device}/maa/stop",
+                        key=f"{profile}/maa/stop",
                         on_click=lambda maa_proxy: maa_proxy.stop(),
                         args=(maa_proxy,),
                     )
 
                 # Run Tasks
                 st.markdown("#### Run Tasks")
-                with st.form(f"{device}/tasks_form"):
+                with st.form(f"{profile}/tasks_form"):
                     options = st.multiselect(
                         label="Tasks",
                         label_visibility="hidden",
                         placeholder="Choose tasks to run (in order)",
                         options=list(maa_streamlit.globals.task_dict().keys()),
-                        key=f"{device}/tasks_form/selected_tasks",
+                        key=f"{profile}/tasks_form/selected_tasks",
                     )
                     st.form_submit_button(
                         "Start",
-                        on_click=lambda device: (
+                        on_click=lambda profile: (
                             maa_streamlit.run_tasks(
-                                device,
+                                profile,
                                 [
                                     maa_streamlit.globals.task_dict()[k]
                                     for k in st.session_state[
-                                        f"{device}/tasks_form/selected_tasks"
+                                        f"{profile}/tasks_form/selected_tasks"
                                     ]
                                 ],
                             ),
                         ),
-                        args=(device,),
+                        args=(profile,),
                     )
 
                 # Scheduled Tasksets
@@ -104,7 +104,7 @@ if __name__ == "__main__":
                 tasksets = [
                     taskset
                     for taskset in maa_streamlit.globals.tasksets()
-                    if taskset.device == device
+                    if taskset.profile == profile
                 ]
                 # TODO allow dynamic config?
                 for taskset in tasksets:
@@ -119,7 +119,7 @@ if __name__ == "__main__":
                             taskset.enabled = st.session_state[key]
 
                         if taskset.schedule:
-                            key = f"{taskset.device}/{taskset.name}/schedule"
+                            key = f"{taskset.profile}/{taskset.name}/schedule"
                             st.toggle(
                                 str(taskset.schedule),
                                 on_change=handle_toggle_schedule,
@@ -132,14 +132,14 @@ if __name__ == "__main__":
                         def handle_start_taskset(
                             taskset: maa_streamlit.data.TaskSet,
                         ):
-                            maa_streamlit.run_tasks(taskset.device, taskset.tasks)
+                            maa_streamlit.run_tasks(taskset.profile, taskset.tasks)
                             taskset.last_run = dt.datetime.now()
 
                         st.button(
                             "start",
                             on_click=handle_start_taskset,
                             args=(taskset,),
-                            key=f"{taskset.device}/{taskset.name}/start",
+                            key=f"{taskset.profile}/{taskset.name}/start",
                         )
                     # add `*` to tasks with overriding params
                     tasks_display_names = [
@@ -159,7 +159,7 @@ if __name__ == "__main__":
                             ):
                                 task.enabled = st.session_state[key]
 
-                            key = f"{taskset.device}/{taskset.name}/tasks/{task.name}"
+                            key = f"{taskset.profile}/{taskset.name}/tasks/{task.name}"
                             st.toggle(
                                 display_name,
                                 value=task.enabled,
@@ -170,11 +170,11 @@ if __name__ == "__main__":
 
             with col_log:
                 st.markdown("#### Log")
-                path = (
-                    maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{device.name}.log"
-                )
+                path = maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{profile}.log"
                 if path.exists():
                     st.code(
-                        maa_streamlit.utils.last_n_lines(path.read_text(encoding='utf-8'), 50),
+                        maa_streamlit.utils.last_n_lines(
+                            path.read_text(encoding="utf-8"), 50
+                        ),
                         language="log",
                     )
