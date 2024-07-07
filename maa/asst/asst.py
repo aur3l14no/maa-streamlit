@@ -223,6 +223,20 @@ class Asst:
         """
         return Asst.__lib.AsstGetVersion().decode('utf-8')
 
+    def get_image(self) -> bytes | None:
+        """
+        获取上次截图
+
+        : return: 长度
+        """
+        buffer = ctypes.create_string_buffer(b'\000' * (1280 * 720 * 3 - 1))
+        print(len(buffer))
+        if (size := Asst.__lib.AsstGetImage(self.__ptr, buffer, len(buffer))) \
+            and size > 0:
+            return bytes(buffer)
+        else:
+            return None
+
     @staticmethod
     def __set_lib_properties():
         Asst.__lib.AsstSetUserDir.restype = ctypes.c_bool
@@ -278,3 +292,7 @@ class Asst:
         Asst.__lib.AsstLog.restype = None
         Asst.__lib.AsstLog.argtypes = (
             ctypes.c_char_p, ctypes.c_char_p)
+
+        Asst.__lib.AsstGetImage.restype = ctypes.c_uint64
+        Asst.__lib.AsstGetImage.argtypes = (
+            ctypes.c_void_p, ctypes.c_void_p, ctypes.c_uint64)

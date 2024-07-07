@@ -211,6 +211,8 @@ class MaaProxy:
                     result = asst.stop()
                 elif func == "running":
                     result = asst.running()
+                elif func == "get_image":
+                    result = asst.get_image()
                 child_conn.send(result)
         except KeyboardInterrupt:
             logger.warning("Ctrl-C, Goodbye~")
@@ -252,6 +254,11 @@ class MaaProxy:
                 return False
             self.process.join(5)
             return self.process.exitcode == 0
+
+    def get_image(self) -> bytes:
+        with self.lock:
+            self.parent_conn.send(("get_image", ()))
+            return bytes(self.parent_conn.recv())
 
 
 class MaaUpdater:

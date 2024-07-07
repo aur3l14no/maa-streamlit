@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
             with col_img:
                 st.markdown("#### Screenshot")
-                st.image(adb_proxy.screenshot())
+                st.image(maa_proxy.get_image() or adb_proxy.screenshot())
                 st.button("⟳", key=f"{profile}/refresh")
 
             with col_ctrl:
