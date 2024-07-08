@@ -178,3 +178,44 @@ if __name__ == "__main__":
                         ),
                         language="log",
                     )
+
+    def global_set_task_state(name, enabled):
+        tasksets = maa_streamlit.globals.tasksets()
+        for taskset in tasksets:
+            for task in taskset.tasks:
+                if task.name == name:
+                    task.enabled = enabled
+
+    st.divider()
+
+    st.markdown("#### Global Controls")
+
+    st.button(
+        "Use fight_event",
+        key="use_fight_event",
+        on_click=lambda: (
+            global_set_task_state("fight_event", True),
+            global_set_task_state("fight_auto", False),
+            global_set_task_state("fight_last", False),
+        ),
+    )
+
+    st.button(
+        "Use fight_auto",
+        key="use_fight_auto",
+        on_click=lambda: (
+            global_set_task_state("fight_event", False),
+            global_set_task_state("fight_auto", True),
+            global_set_task_state("fight_last", False),
+        ),
+    )
+
+    st.button(
+        "Use fight_last",
+        key="use_fight_last",
+        on_click=lambda: (
+            global_set_task_state("fight_event", False),
+            global_set_task_state("fight_auto", False),
+            global_set_task_state("fight_last", True),
+        ),
+    )
