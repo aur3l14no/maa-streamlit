@@ -26,8 +26,13 @@ class AdbProxy:
         # can it be faster? we only need a
         time_start = time.time()
         img_bytes = sp.check_output(
-            f'adb -s {self.profile.connection.device} exec-out "screencap -p 2>/dev/null"',
-            shell=True,
+            [
+                self.profile.connection.adb_path,
+                "-s",
+                self.profile.connection.device,
+                "exec-out",
+                "screencap -p 2>/dev/null",
+            ]
         )
         img = Image.open(BytesIO(img_bytes))
         img_thumbnail = img.resize((768, 432))
@@ -38,15 +43,25 @@ class AdbProxy:
 
     def force_close(self) -> None:
         sp.run(
-            f"adb -s {self.profile.connection.device} shell 'am force-stop {self.ARKNIGHTS_BUNDLE_NAME} && sleep 1'",
-            shell=True,
+            [
+                self.profile.connection.adb_path,
+                "-s",
+                self.profile.connection.device,
+                "shell",
+                f"am force-stop {self.ARKNIGHTS_BUNDLE_NAME} && sleep 1",
+            ]
         )
 
     def pid(self) -> Optional[int]:
         try:
             pid_s = sp.check_output(
-                f"adb -s {self.profile.connection.device} shell pidof {self.ARKNIGHTS_BUNDLE_NAME}",
-                shell=True,
+                [
+                    self.profile.connection.adb_path,
+                    "-s",
+                    self.profile.connection.device,
+                    "shell",
+                    f"pidof {self.ARKNIGHTS_BUNDLE_NAME}",
+                ],
                 encoding="utf8",
             )
             return int(pid_s.strip())
