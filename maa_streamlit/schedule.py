@@ -1,4 +1,5 @@
 """Background tasks."""
+
 import datetime as dt
 import threading
 import time
@@ -22,7 +23,7 @@ def cron_delta(cron_time: dt.time, datetime: dt.datetime):
 @st.cache_resource
 def spawn_scheduler_thread() -> threading.Thread:
     MIN_INTERVAL_BETWEEN_RUNS_PER_TASKSET = dt.timedelta(minutes=10)
-    TOLERANCE = dt.timedelta(seconds=30)
+    TOLERANCE = dt.timedelta(seconds=40)
     FORCE_STOP = True
 
     def f():
@@ -45,7 +46,7 @@ def spawn_scheduler_thread() -> threading.Thread:
                     maa_streamlit.logger.info(f"Scheduled taskset: {taskset.name}")
 
                     maa_streamlit.run_tasks(
-                        taskset.device,
+                        taskset.profile,
                         taskset.tasks,
                         force_stop=FORCE_STOP,
                     )
