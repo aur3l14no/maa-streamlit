@@ -21,7 +21,7 @@ def init():
 
     updater = maa.MaaUpdater()
     # updater.update_core()
-    updater.update_ota()
+    # updater.update_ota()
 
     # init globals
     for obj in [getattr(globals, name) for name in globals.__all__]:

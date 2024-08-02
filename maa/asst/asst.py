@@ -4,9 +4,9 @@ import json
 import os
 import pathlib
 import platform
-from typing import Optional, Union
+from typing import Union, Optional
 
-from .utils import JSON, InstanceOptionType, StaticOptionType
+from .utils import InstanceOptionType, StaticOptionType, JSON
 
 
 class Asst:
@@ -110,32 +110,18 @@ class Asst:
         return Asst.__lib.AsstSetInstanceOption(self.__ptr,
                                                 int(option_type), option_value.encode('utf-8'))
 
-    @staticmethod
     def set_static_option(option_type: StaticOptionType, option_value: str):
         """
         设置进程级参数
         参见${MaaAssistantArknights}/src/MaaCore/Assistant.cpp#set_static_option
 
         :params:
-            ``option_type``:    额外配置类型
-            ``option_value``:   额外配置的值
+            ``option_type``:    进程级参数类型
+            ``option_value``:   进程级参数的值
 
         :return: 是否设置成功
         """
         return Asst.__lib.AsstSetStaticOption(int(option_type), option_value.encode('utf-8'))
-
-    def set_connection_extras(name: str, extras: JSON):
-        """
-        连接模拟器端的Extras
-        参见${MaaAssistantArknights}/src/MaaCore/AsstCaller.cpp#AsstSetConnectionExtras
-
-        :params:
-            ``name``:           Extras名称
-            ``extras``:         Extras配置
-
-        :return: 是否设置成功
-        """
-        return Asst.__lib.AsstSetConnectionExtras(name.encode('utf-8'), json.dumps(extras, ensure_ascii=False).encode('utf-8'))
 
     def connect(self, adb_path: str, address: str, config: str = 'General'):
         """
@@ -150,6 +136,33 @@ class Asst:
         """
         return Asst.__lib.AsstConnect(self.__ptr,
                                       adb_path.encode('utf-8'), address.encode('utf-8'), config.encode('utf-8'))
+
+    def get_image(self, size: int) -> bytes | None:
+        """
+        获取上次截图
+        :params:
+            ``size``:  图像字节数, 如 1280*720*3
+
+        : return: 成功时图像的字节; 失败时 None
+        """
+        buffer_type = ctypes.c_byte * size
+        buffer = buffer_type()
+        buffer.value = b'\000' * size
+        if (got := Asst.__lib.AsstGetImage(self.__ptr, buffer, size)) \
+                and got > 0:
+            return bytes(buffer)
+        else:
+            return None
+
+    def set_connection_extras(name: str, extras: JSON):
+        """
+        连接模拟器端的Extras
+
+        :params:
+            ``name``:           Extras名称
+            ``extras``:         Extras配置
+        """
+        Asst.__lib.AsstSetConnectionExtras(name.encode('utf-8'), json.dumps(extras, ensure_ascii=False).encode('utf-8'))
 
     TaskId = int
 
@@ -222,23 +235,6 @@ class Asst:
         """
         return Asst.__lib.AsstGetVersion().decode('utf-8')
 
-    def get_image(self, size) -> bytes | None:
-        """
-        获取上次截图
-        :params:
-            ``size``:  图像字节数, 如 1280*720*3
-
-        : return: 成功时图像的字节; 失败时 None
-        """
-        buffer_type = ctypes.c_byte * size
-        buffer = buffer_type()
-        buffer.value = b'\000' * size
-        if (got := Asst.__lib.AsstGetImage(self.__ptr, buffer, size)) \
-            and got > 0:
-            return bytes(buffer)
-        else:
-            return None
-
     @staticmethod
     def __set_lib_properties():
         Asst.__lib.AsstSetUserDir.restype = ctypes.c_bool
@@ -248,6 +244,18 @@ class Asst:
         Asst.__lib.AsstLoadResource.restype = ctypes.c_bool
         Asst.__lib.AsstLoadResource.argtypes = (
             ctypes.c_char_p,)
+
+        Asst.__lib.AsstSetStaticOption.restype = ctypes.c_bool
+        Asst.__lib.AsstSetStaticOption.argtypes = (
+            ctypes.c_int, ctypes.c_char_p,)
+
+        Asst.__lib.AsstSetConnectionExtras.restype = ctypes.c_void_p
+        Asst.__lib.AsstSetConnectionExtras.argtypes = (
+            ctypes.c_char_p, ctypes.c_char_p,)
+
+        Asst.__lib.AsstGetImage.restype = ctypes.c_uint64
+        Asst.__lib.AsstGetImage.argtypes = (
+            ctypes.c_void_p, ctypes.c_void_p, ctypes.c_uint64)
 
         Asst.__lib.AsstCreate.restype = ctypes.c_void_p
         Asst.__lib.AsstCreate.argtypes = ()
@@ -262,15 +270,13 @@ class Asst:
         Asst.__lib.AsstSetInstanceOption.argtypes = (
             ctypes.c_void_p, ctypes.c_int, ctypes.c_char_p,)
 
-        Asst.__lib.AsstSetStaticOption.restype = ctypes.c_bool
-        Asst.__lib.AsstSetStaticOption.argtypes = (ctypes.c_int, ctypes.c_char_p,)
-
-        Asst.__lib.AsstSetConnectionExtras.restype = ctypes.c_void_p
-        Asst.__lib.AsstSetConnectionExtras.argtypes = (ctypes.c_char_p, ctypes.c_char_p,)
-
         Asst.__lib.AsstConnect.restype = ctypes.c_bool
         Asst.__lib.AsstConnect.argtypes = (
             ctypes.c_void_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p,)
+
+        Asst.__lib.AsstAsyncConnect.restype = ctypes.c_int
+        Asst.__lib.AsstAsyncConnect.argtypes = (
+            ctypes.c_void_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_bool)
 
         Asst.__lib.AsstAppendTask.restype = ctypes.c_int
         Asst.__lib.AsstAppendTask.argtypes = (
@@ -294,7 +300,3 @@ class Asst:
         Asst.__lib.AsstLog.restype = None
         Asst.__lib.AsstLog.argtypes = (
             ctypes.c_char_p, ctypes.c_char_p)
-
-        Asst.__lib.AsstGetImage.restype = ctypes.c_uint64
-        Asst.__lib.AsstGetImage.argtypes = (
-            ctypes.c_void_p, ctypes.c_void_p, ctypes.c_uint64)
