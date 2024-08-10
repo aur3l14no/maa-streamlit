@@ -106,7 +106,7 @@ def run_tasks(
         if task.type == "AutoFight":
             task.type = "Fight"
             weekday = utils.get_arknights_weekday(dt.datetime.now())
-            task.params = {"stage": autofight_dict[weekday]}
+            task.params.update({"stage": autofight_dict[weekday]})
     for task in tasks:
         if task.enabled:
             maa_proxy.append_task(task.type, task.params)
