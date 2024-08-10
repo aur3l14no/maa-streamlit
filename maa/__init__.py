@@ -1,6 +1,7 @@
 import json
 import multiprocessing as mp
 import threading
+from multiprocessing.connection import PipeConnection
 
 import maa_streamlit
 
@@ -18,7 +19,7 @@ class MaaProxy:
         self.lock = threading.Lock()
 
     @staticmethod
-    def target(profile: maa_streamlit.data.Profile, child_conn: mp.Pipe):
+    def target(profile: maa_streamlit.data.Profile, child_conn: PipeConnection):
         # logger
         from loguru import logger
 
