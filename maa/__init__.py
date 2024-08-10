@@ -58,11 +58,14 @@ class MaaProxy:
                         case (
                             Message.TaskChainStart
                             | Message.TaskChainCompleted
-                            | Message.TaskChainError
                             | Message.TaskChainExtraInfo
                             | Message.TaskChainStopped
                         ):
                             logger.info(f"{m} {d['taskchain']}")
+                        case Message.TaskChainStopped:
+                            logger.warning(f"{m} {d['taskchain']}")
+                        case Message.TaskChainError:
+                            logger.error(f"{m} {d['taskchain']}")
                         case Message.SubTaskCompleted:
                             match details.get("task"):
                                 # case "StartButton2":

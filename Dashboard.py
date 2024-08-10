@@ -106,7 +106,6 @@ if __name__ == "__main__":
                     for taskset in maa_streamlit.globals.tasksets()
                     if taskset.profile == profile
                 ]
-                # TODO allow dynamic config?
                 for taskset in tasksets:
                     col_name, col_schedule, col_start = st.columns(3)
                     with col_name:
