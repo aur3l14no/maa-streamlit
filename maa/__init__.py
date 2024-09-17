@@ -172,12 +172,12 @@ class MaaProxy:
             incremental_path=maa_streamlit.consts.MAA_CORE_DIR / "cache",
         )
         # static_option
-        Asst.set_static_option(
-            int(StaticOptionType.cpu_ocr), str(profile.static_options.cpu_ocr)
-        )
-        Asst.set_static_option(
-            int(StaticOptionType.gpu_ocr), str(profile.static_options.gpu_ocr)
-        )
+        # Asst.set_static_option(
+        #     int(StaticOptionType.cpu_ocr), str(profile.static_options.cpu_ocr)
+        # )
+        # Asst.set_static_option(
+        #     int(StaticOptionType.gpu_ocr), str(profile.static_options.gpu_ocr)
+        # )
         # extra_option
         Asst.set_connection_extras(profile.connection.config, profile.connection_extras)
         # instance_option
