@@ -1,6 +1,6 @@
-import pathlib
+from pathlib import Path
 
-MAA_STREAMLIT_STATE_DIR = pathlib.Path(__file__).parent.parent / "data"
+MAA_STREAMLIT_STATE_DIR = Path("data")
 MAA_CORE_DIR = MAA_STREAMLIT_STATE_DIR / "maa-core"
 
 LOGGER_FORMAT = (

@@ -1,7 +1,6 @@
 if __name__ == "__main__":
     import datetime as dt
     import threading
-    import time
 
     import streamlit as st
 

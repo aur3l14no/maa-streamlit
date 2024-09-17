@@ -2,11 +2,14 @@
 .direnv
 .venv
 
+/build
+
 /data
 /config
 
 __pycache__
 .pytest_cache
+*.egg-info
 
 .ruff_cache
 .streamlit/secrets.toml
