@@ -1,5 +1,6 @@
 import json
 import multiprocessing as mp
+import subprocess as sp
 import threading
 from multiprocessing.connection import PipeConnection
 
@@ -179,7 +180,31 @@ class MaaProxy:
         #     int(StaticOptionType.gpu_ocr), str(profile.static_options.gpu_ocr)
         # )
         # extra_option
-        Asst.set_connection_extras(profile.connection.config, profile.connection_extras)
+        if profile.connection.config == "LDPlayer":
+            try:
+                index = profile.connection_extras.get("index")
+                res = sp.run(
+                    ["C:\leidian\LDPlayer9\ldconsole.exe", "list2"],
+                    stdout=sp.PIPE,
+                )
+                line = next(
+                    filter(
+                        lambda line: line.strip().split(",")[0] == str(index),
+                        res.stdout.decode("gbk").splitlines(),
+                    )
+                )
+                pid = int(line.strip().split(",")[5])
+                Asst.set_connection_extras(
+                    profile.connection.config, profile.connection_extras | {"pid": pid}
+                )
+            except Exception:
+                Asst.set_connection_extras(
+                    profile.connection.config, profile.connection_extras
+                )
+        else:
+            Asst.set_connection_extras(
+                profile.connection.config, profile.connection_extras
+            )
         # instance_option
         asst = Asst(callback=asst_callback)
         asst.set_instance_option(
