@@ -3,6 +3,8 @@ import multiprocessing
 import platform
 import re
 import os
+import requests
+import shutil
 import tarfile
 import zipfile
 from multiprocessing import queues, Process
@@ -201,7 +203,10 @@ class Updater:
                 try:
                     Updater.custom_print("开始下载" + (f"，第{retry_frequency}次尝试" if retry_frequency > 1 else ""))
                     # 调用downloader方法进行下载
-                    downloader.file_download(download_url_list=url_list, download_path=file)
+                    with requests.get(url_list[-1], stream=True) as r:
+                        with open(file, 'wb') as f:
+                            shutil.copyfileobj(r.raw, f)
+                    # downloader.file_download(download_url_list=url_list, download_path=file)
                     break           # RNM怎么会有这么蠢的人忘了写break啊淦
                 except(HTTPError, URLError) as e:
                     Updater.custom_print(e)

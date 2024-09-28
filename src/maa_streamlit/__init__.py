@@ -20,7 +20,7 @@ def init():
     import maa
 
     updater = maa.MaaUpdater()
-    # updater.update_core()
+    updater.update_core()
     # updater.update_ota()
 
     # init globals
