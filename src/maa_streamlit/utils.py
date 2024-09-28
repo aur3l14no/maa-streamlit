@@ -26,7 +26,9 @@ class StreamlitLogHandler(logging.Handler):
 
 
 def last_n_lines(s, n):
-    return "\n".join(s.splitlines()[-n:])
+    lines = s.splitlines()
+    error_lines = [line for line in lines if "error" in line.lower()]
+    return "\n".join(error_lines + lines[-(n - len(error_lines)) :])
 
 
 def get_arknights_weekday(x: dt.datetime):
