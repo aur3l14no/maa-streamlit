@@ -4,11 +4,13 @@ import subprocess as sp
 import threading
 from multiprocessing.connection import PipeConnection
 
-import maa_streamlit
+from maa_streamlit.data import Profile
+
+from . import consts
 
 
 class MaaProxy:
-    def __init__(self, profile: maa_streamlit.data.Profile):
+    def __init__(self, profile: Profile):
         self.profile = profile
         ctx = mp.get_context("spawn")
         self.parent_conn, self.child_conn = ctx.Pipe()
@@ -20,28 +22,28 @@ class MaaProxy:
         self.lock = threading.Lock()
 
     @staticmethod
-    def target(profile: maa_streamlit.data.Profile, child_conn: PipeConnection):
+    def target(profile: Profile, child_conn: PipeConnection):
         # logger
         from loguru import logger
 
-        from .asst.asst import Asst
-        from .asst.utils import InstanceOptionType, Message, StaticOptionType
+        from maa.asst.asst import Asst
+        from maa.asst.utils import InstanceOptionType, Message, StaticOptionType
 
         logger = logger.bind(profile=profile.name)
         logger.add(
-            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{profile.name}.log",
+            consts.MAA_STREAMLIT_STATE_DIR / f"{profile.name}.log",
             level="INFO",
             rotation="00:00",
             retention=2,
-            format=maa_streamlit.consts.CONCISE_LOGGER_FORMAT,
+            format=consts.CONCISE_LOGGER_FORMAT,
             enqueue=True,
         )
         logger.add(
-            maa_streamlit.consts.MAA_STREAMLIT_STATE_DIR / f"{profile.name}.debug.log",
+            consts.MAA_STREAMLIT_STATE_DIR / f"{profile.name}.debug.log",
             level="DEBUG",
             rotation="00:00",
             retention=2,
-            format=maa_streamlit.consts.LOGGER_FORMAT,
+            format=consts.LOGGER_FORMAT,
             enqueue=True,
         )
 
@@ -169,8 +171,8 @@ class MaaProxy:
 
         # core
         Asst.load(
-            path=maa_streamlit.consts.MAA_CORE_DIR,
-            incremental_path=maa_streamlit.consts.MAA_CORE_DIR / "cache",
+            path=consts.MAA_CORE_DIR,
+            incremental_path=consts.MAA_CORE_DIR / "cache",
         )
         # static_option
         # Asst.set_static_option(
@@ -293,11 +295,11 @@ class MaaUpdater:
         self.lock = threading.Lock()
 
     def update_core(self):
-        from .asst.updater import Updater
-        from .asst.utils import Version
+        from maa.asst.updater import Updater
+        from maa.asst.utils import Version
 
         with self.lock:
-            Updater(maa_streamlit.consts.MAA_CORE_DIR, Version.Beta).update()
+            Updater(consts.MAA_CORE_DIR, Version.Beta).update()
 
     def update_ota(self):
         import urllib.request
@@ -307,7 +309,7 @@ class MaaUpdater:
                 "https://ota.maa.plus/MaaAssistantArknights/api/resource/tasks.json"
             )
             ota_tasks_path = (
-                maa_streamlit.consts.MAA_CORE_DIR / "cache" / "resource" / "tasks.json"
+                consts.MAA_CORE_DIR / "cache" / "resource" / "tasks.json"
             )
             ota_tasks_path.parent.mkdir(parents=True, exist_ok=True)
             with open(ota_tasks_path, "w", encoding="utf-8") as f:

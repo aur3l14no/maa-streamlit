@@ -4,18 +4,17 @@ from io import BytesIO
 from typing import Optional
 
 import streamlit as st
+from loguru import logger
 from PIL import Image
 
-import maa_streamlit
-
-from . import logger
+from . import data
 
 
 class AdbProxy:
     ARKNIGHTS_BUNDLE_NAME = "com.hypergryph.arknights"
     TTL = "5s"
 
-    def __init__(self, profile: "maa_streamlit.data.Profile") -> None:
+    def __init__(self, profile: data.Profile) -> None:
         self.profile = profile
 
     def _st_hash(self):

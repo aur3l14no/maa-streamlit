@@ -1,6 +1,6 @@
 import datetime as dt
 
-import maa_streamlit
+import maa_streamlit.schedule
 
 
 def test_cron_delta():

@@ -4,8 +4,9 @@ import time
 
 import streamlit as st
 
-import maa
-import maa_streamlit
+from maa_streamlit.maa import MaaProxy
+
+from . import adb, data
 
 __all__ = [
     "task_dict",
@@ -17,34 +18,34 @@ __all__ = [
 
 
 @st.cache_data
-def task_dict() -> dict[str, maa_streamlit.data.Task]:
-    tasks = maa_streamlit.data.load_all_tasks()
+def task_dict() -> dict[str, data.Task]:
+    tasks = data.load_all_tasks()
     return {task.name: task for task in tasks}
 
 
 @st.cache_resource
-def tasksets() -> list[maa_streamlit.data.TaskSet]:
-    return sorted(maa_streamlit.data.load_all_tasksets())
+def tasksets() -> list[data.TaskSet]:
+    return sorted(data.load_all_tasksets())
 
 
 @st.cache_data
-def profiles() -> dict[str, maa_streamlit.data.Profile]:
-    return maa_streamlit.data.load_all_profiles()
+def profiles() -> dict[str, data.Profile]:
+    return data.load_all_profiles()
 
 
 @st.cache_resource
-def maa_proxy_dict() -> dict[str, "maa.MaaProxy"]:
+def maa_proxy_dict() -> dict[str, MaaProxy]:
     res = {}
     for name, profile in profiles().items():
-        res[name] = maa.MaaProxy(profile)
+        res[name] = MaaProxy(profile)
         time.sleep(1)
     return res
 
 
 @st.cache_resource
-def adb_proxy_dict() -> dict[str, maa_streamlit.adb.AdbProxy]:
+def adb_proxy_dict() -> dict[str, adb.AdbProxy]:
     return {
-        name: maa_streamlit.adb.AdbProxy(profile)
+        name: adb.AdbProxy(profile)
         for name, profile in profiles().items()
     }
 

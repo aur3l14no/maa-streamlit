@@ -7,7 +7,7 @@ import time
 import streamlit as st
 from streamlit.runtime.scriptrunner import add_script_run_ctx
 
-import maa_streamlit
+from . import control, globals, logger
 
 
 def cron_delta(cron_time: dt.time, datetime: dt.datetime):
@@ -27,10 +27,9 @@ def spawn_scheduler_thread() -> threading.Thread:
     FORCE_STOP = True
 
     def f():
-        tasksets = maa_streamlit.globals.tasksets()
         while True:
             now = dt.datetime.now()
-            for taskset in tasksets:
+            for taskset in globals.tasksets():
                 if (
                     taskset.schedule
                     and taskset.enabled
@@ -43,9 +42,9 @@ def spawn_scheduler_thread() -> threading.Thread:
                         )
                     )
                 ):
-                    maa_streamlit.logger.info(f"Scheduled taskset: {taskset.name}")
+                    logger.info(f"Scheduled taskset: {taskset.name}")
 
-                    maa_streamlit.run_tasks(
+                    control.run_tasks(
                         taskset.profile,
                         taskset.tasks,
                         force_stop=FORCE_STOP,

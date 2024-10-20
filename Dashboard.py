@@ -4,7 +4,10 @@ if __name__ == "__main__":
 
     import streamlit as st
 
-    import maa_streamlit
+    from maa_streamlit.maa_streamlit import init
+    from maa_streamlit.control import run_tasks
+    import maa_streamlit.data
+    import maa_streamlit.globals
 
     @st.cache_resource
     def init_maa_streamlit_lock():
@@ -13,7 +16,7 @@ if __name__ == "__main__":
     @st.cache_resource
     def init_maa_streamlit():
         with init_maa_streamlit_lock():
-            maa_streamlit.init()
+            init()
 
     st.set_page_config(
         page_title="MaaS",
@@ -85,7 +88,7 @@ if __name__ == "__main__":
                     st.form_submit_button(
                         "Start",
                         on_click=lambda profile: (
-                            maa_streamlit.run_tasks(
+                            run_tasks(
                                 profile,
                                 [
                                     maa_streamlit.globals.task_dict()[k]
@@ -130,7 +133,7 @@ if __name__ == "__main__":
                         def handle_start_taskset(
                             taskset: maa_streamlit.data.TaskSet,
                         ):
-                            maa_streamlit.run_tasks(taskset.profile, taskset.tasks)
+                            run_tasks(taskset.profile, taskset.tasks)
                             taskset.last_run = dt.datetime.now()
 
                         st.button(
