@@ -186,7 +186,7 @@ class MaaProxy:
             try:
                 index = profile.connection_extras.get("index")
                 res = sp.run(
-                    ["C:\leidian\LDPlayer9\ldconsole.exe", "list2"],
+                    [r"C:\leidian\LDPlayer9\ldconsole.exe", "list2"],
                     stdout=sp.PIPE,
                 )
                 line = next(
