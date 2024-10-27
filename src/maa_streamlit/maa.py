@@ -59,17 +59,14 @@ class MaaProxy:
                 what = d.get("what")
                 try:
                     match m:
-                        case (
-                            Message.TaskChainStart
-                            | Message.TaskChainCompleted
-                            | Message.TaskChainExtraInfo
-                            | Message.TaskChainStopped
-                        ):
-                            logger.info(f"{m} {d['taskchain']}")
+                        case Message.TaskChainStart:
+                            logger.info(f"⏩ {d['taskchain']}")
                         case Message.TaskChainStopped:
-                            logger.warning(f"{m} {d['taskchain']}")
+                            logger.info(f"⏹️ {d['taskchain']}")
+                        case Message.TaskChainCompleted:
+                            logger.info(f"✅ {d['taskchain']}")
                         case Message.TaskChainError:
-                            logger.error(f"{m} {d['taskchain']}")
+                            logger.error(f"❌ {d['taskchain']}")
                         case Message.SubTaskCompleted:
                             match details.get("task"):
                                 # case "StartButton2":
@@ -241,7 +238,7 @@ class MaaProxy:
                 elif func == "running":
                     result = asst.running()
                 elif func == "get_image":
-                    result = asst.get_image(1280 * 720 * 3)
+                    result = asst.get_image(1920 * 1080 * 3)
                 child_conn.send(result)
         except KeyboardInterrupt:
             logger.warning("Ctrl-C, Goodbye~")
