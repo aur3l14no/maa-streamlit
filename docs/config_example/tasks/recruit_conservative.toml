@@ -1,0 +1,8 @@
+type = "Recruit"
+
+[params]
+refresh = true
+select = [4]
+confirm = [4]
+times = 4
+extra_tags_mode = 2

@@ -2,7 +2,7 @@
 name = "maa-streamlit"
 version = "0.1.0"
 dependencies = [
-    "streamlit",
+    "streamlit>=1.40.0",
     "psutil",
     "deepmerge",
     "loguru",
