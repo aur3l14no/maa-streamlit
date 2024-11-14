@@ -243,8 +243,10 @@ class MaaProxy:
         except KeyboardInterrupt:
             logger.warning("Ctrl-C, Goodbye~")
             pass
+        except EOFError:
+            pass
         except Exception as e:
-            logger.error(f"Uncaught error {e}")
+            logger.error(f"Uncaught exception {type(e).__name__}: {e}")
 
     def append_task(self, task, params) -> int:
         with self.lock:
