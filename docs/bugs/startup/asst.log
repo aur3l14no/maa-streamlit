@@ -1,0 +1,519 @@
+[2025-01-11 08:44:34.427][INF][Px1ea8][Tx2af8] asst::Assistant::append_task StartUp {"start_game_enabled": true, "client_type": "Official"}
+[2025-01-11 08:44:34.427][TRC][Px1ea8][Tx2af8] asst::StartUpTask::StartUpTask | enter
+[2025-01-11 08:44:34.427][TRC][Px1ea8][Tx2af8] asst::StartUpTask::StartUpTask | leave, 0 ms
+[2025-01-11 08:44:34.427][TRC][Px1ea8][Tx2af8] asst::StartUpTask::set_params | enter
+[2025-01-11 08:44:34.427][TRC][Px1ea8][Tx2af8] asst::StartUpTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.427][INF][Px1ea8][Tx2af8] asst::Assistant::append_task | task_id: 14
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] asst::Assistant::append_task Infrast {"enable": true, "mode": 0, "facility": ["Trade", "Mfg", "Reception", "Power", "Control", "Office", "Training", "Dorm"], "dorm_trust_enabled": true, "drones": "PureGold", "continue_training": true}
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::InfrastTask::InfrastTask | enter
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::InfrastTask::InfrastTask | leave, 0 ms
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::InfrastTask::set_params | enter
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::InfrastTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] asst::Assistant::append_task | task_id: 15
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] asst::Assistant::append_task Fight {"expiring_medicine": 100, "DrGrandet": true, "stage": "AP-5"}
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::FightTask::FightTask | enter
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::FightTask::FightTask | leave, 0 ms
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::FightTask::set_params | enter
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::StageNavigationTask::set_stage_name | enter
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] directly task AP-5
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::StageNavigationTask::set_stage_name | leave, 0 ms
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::FightTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] asst::Assistant::append_task | task_id: 16
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] asst::Assistant::append_task Recruit {"refresh": true, "select": [4], "confirm": [4], "times": 4, "extra_tags_mode": 2}
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::RecruitTask::RecruitTask | enter
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::RecruitTask::RecruitTask | leave, 0 ms
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::RecruitTask::set_params | enter
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::RecruitTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] asst::Assistant::append_task | task_id: 17
+[2025-01-11 08:44:34.428][INF][Px1ea8][Tx2af8] asst::Assistant::append_task Mall {"buy_first": ["招聘许可", "龙门币"], "blacklist": ["加急许可", "家具零件", "碳素"]}
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::CopilotTask::CopilotTask | enter
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::CopilotTask::CopilotTask | leave, 0 ms
+[2025-01-11 08:44:34.428][TRC][Px1ea8][Tx2af8] asst::CopilotTask::set_params | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig :: asst::AbstractConfig::load | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_basic_info | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_basic_info | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_groups | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_groups | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_actions | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_actions | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig :: asst::AbstractConfig::load | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleProcessTask::set_stage_name | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleHelper::set_stage_name | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleHelper::set_stage_name | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleProcessTask::set_stage_name | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleFormationTask::set_specific_support_unit | enter
+[2025-01-11 08:44:34.429][ERR][Px1ea8][Tx2af8] asst::BattleFormationTask::set_specific_support_unit | Current support unit usage is not SupportUnitUsage::Specific
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleFormationTask::set_specific_support_unit | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::StageNavigationTask::set_stage_name | enter
+[2025-01-11 08:44:34.429][INF][Px1ea8][Tx2af8] directly task OF-1
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::StageNavigationTask::set_stage_name | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::MallTask::MallTask | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::MallTask::MallTask | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::MallTask::set_params | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotTask::set_params | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig :: asst::AbstractConfig::load | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_basic_info | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_basic_info | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_groups | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_groups | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_actions | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse_actions | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig::parse | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotConfig :: asst::AbstractConfig::load | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleProcessTask::set_stage_name | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleHelper::set_stage_name | enter
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleHelper::set_stage_name | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleProcessTask::set_stage_name | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleFormationTask::set_specific_support_unit | enter
+[2025-01-11 08:44:34.429][ERR][Px1ea8][Tx2af8] asst::BattleFormationTask::set_specific_support_unit | Current support unit usage is not SupportUnitUsage::Specific
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::BattleFormationTask::set_specific_support_unit | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::CopilotTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] selecting formation 0
+[2025-01-11 08:44:34.429][TRC][Px1ea8][Tx2af8] asst::MallTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.429][INF][Px1ea8][Tx2af8] asst::Assistant::append_task | task_id: 18
+[2025-01-11 08:44:34.430][INF][Px1ea8][Tx2af8] asst::Assistant::append_task Award {}
+[2025-01-11 08:44:34.430][TRC][Px1ea8][Tx2af8] asst::AwardTask::AwardTask | enter
+[2025-01-11 08:44:34.430][TRC][Px1ea8][Tx2af8] asst::AwardTask::AwardTask | leave, 0 ms
+[2025-01-11 08:44:34.430][TRC][Px1ea8][Tx2af8] asst::AwardTask::set_params | enter
+[2025-01-11 08:44:34.430][TRC][Px1ea8][Tx2af8] asst::AwardTask::set_params | leave, 0 ms
+[2025-01-11 08:44:34.430][INF][Px1ea8][Tx2af8] asst::Assistant::append_task | task_id: 19
+[2025-01-11 08:44:34.430][INF][Px1ea8][Tx2af8] asst::Assistant::append_task CloseDown {"client_type": "Official"}
+[2025-01-11 08:44:34.430][INF][Px1ea8][Tx2af8] asst::Assistant::append_task | task_id: 20
+[2025-01-11 08:44:34.430][TRC][Px1ea8][Tx2af8] asst::Assistant::start | enter
+[2025-01-11 08:44:34.430][INF][Px1ea8][Tx2af8] Start | block
+[2025-01-11 08:44:34.430][TRC][Px1ea8][Tx2af8] asst::Assistant::start | leave, 0 ms
+[2025-01-11 08:44:34.430][INF][Px1ea8][Tx2d28] Assistant::append_callback | TaskChainStart {"taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:44:34.430][TRC][Px1ea8][Tx2d28] asst::PackageTask::run | run subtask 1 / 3 {"class":"asst::StartGameTaskPlugin","details":{},"subtask":"StartGameTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:34.430][INF][Px1ea8][Tx2d28] Assistant::append_callback | SubTaskStart {"class":"asst::StartGameTaskPlugin","details":{},"subtask":"StartGameTask","taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:44:34.499][INF][Px1ea8][Tx2d28] Call ` adb -s emulator-5556 shell am start -n com.hypergryph.arknights/com.u8.sdk.U8UnityContext ` ret 0 , cost 68 ms , stdout size: 77 , socket size: 0
+[2025-01-11 08:44:34.499][TRC][Px1ea8][Tx2d28] stdout output:
+Starting: Intent { cmp=com.hypergryph.arknights/com.u8.sdk.U8UnityContext }
+
+
+[2025-01-11 08:44:34.499][TRC][Px1ea8][Tx2d28] ready to sleep 1500
+[2025-01-11 08:44:36.001][TRC][Px1ea8][Tx2d28] end of sleep 1500
+[2025-01-11 08:44:36.075][INF][Px1ea8][Tx2d28] Call ` adb -s emulator-5556 shell am start -n com.hypergryph.arknights/com.u8.sdk.U8UnityContext ` ret 0 , cost 74 ms , stdout size: 175 , socket size: 0
+[2025-01-11 08:44:36.075][TRC][Px1ea8][Tx2d28] stdout output:
+Starting: Intent { cmp=com.hypergryph.arknights/com.u8.sdk.U8UnityContext }
+
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+
+
+[2025-01-11 08:44:36.075][INF][Px1ea8][Tx2d28] Assistant::append_callback | SubTaskCompleted {"class":"asst::StartGameTaskPlugin","details":{},"subtask":"StartGameTask","taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:44:36.075][TRC][Px1ea8][Tx2d28] ready to sleep 500
+[2025-01-11 08:44:36.576][TRC][Px1ea8][Tx2d28] end of sleep 500
+[2025-01-11 08:44:36.576][TRC][Px1ea8][Tx2d28] asst::PackageTask::run | run subtask 2 / 3 {"class":"asst::AccountSwitchTask","details":{},"subtask":"AccountSwitchTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:36.576][TRC][Px1ea8][Tx2d28] asst::PackageTask::run | run subtask 3 / 3 {"class":"asst::ProcessTask","details":{},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:36.576][TRC][Px1ea8][Tx2d28] asst::ProcessTask::run | enter
+[2025-01-11 08:44:36.576][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":0,"retry_times":50,"to_be_recognized":["StartAtHome","StartWithSanity","StartUpBegin"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:36.652][INF][Px1ea8][Tx2d28] Assistant::append_callback | SubTaskStart {"class":"asst::ProcessTask","details":{"action":"DoNothing","algorithm":"JustReturn","exec_times":1,"max_times":2147483647,"result":null,"task":"StartUpBegin"},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"","subtask":"ProcessTask","taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:44:36.652][INF][Px1ea8][Tx2d28] Assistant::append_callback | SubTaskCompleted {"class":"asst::ProcessTask","details":{"action":"DoNothing","algorithm":"JustReturn","exec_times":1,"max_times":2147483647,"result":null,"task":"StartUpBegin"},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"","subtask":"ProcessTask","taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:44:36.652][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:37.653][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:37.653][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":0,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:37.720][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 43 ms
+[2025-01-11 08:44:37.880][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 49 ms
+[2025-01-11 08:44:37.966][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 76 ms
+[2025-01-11 08:44:37.990][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":1,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:37.990][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:38.991][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:39.007][INF][Px1ea8][Tx2d28] Assistant::append_callback | ConnectionInfo {"details":{"avg":14,"max":18,"min":14},"uuid":"1694094529805317","what":"ScreencapCost"}
+[2025-01-11 08:44:39.080][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 64 ms
+[2025-01-11 08:44:39.278][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 81 ms
+[2025-01-11 08:44:39.337][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 50 ms
+[2025-01-11 08:44:39.371][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":2,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:39.372][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:40.373][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:41.128][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 角闪给: [ 94, 126, 145, 36 ], score: 0.697779 }, { S1UDQ: [ 329, 117, 116, 28 ], score: 0.769425 }, { MNACN: [ 326, 149, 206, 30 ], score: 0.954931 }, { HIER6RPH: [ 120, 166, 90, 19 ], score: 0.772374 }, { 戏适合年满12周岁以上的用户使用;为了您的健康，请合理控制: [ 1, 285, 531, 19 ], score: 0.953368 }, { 7-498-05646-7著作权人:上海鹰角网络科技有限公司出版单位;: [ 2, 311, 525, 18 ], score: 0.958118 }, { 盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏: [ 0, 334, 532, 22 ], score: 0.957359 }] by OCR Pipeline , cost 732 ms
+[2025-01-11 08:44:41.254][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 56 ms
+[2025-01-11 08:44:41.330][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 65 ms
+[2025-01-11 08:44:41.364][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":3,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:41.364][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:42.365][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:43.045][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 角闪给: [ 94, 126, 145, 36 ], score: 0.697779 }, { S1UDQ: [ 329, 117, 116, 28 ], score: 0.769425 }, { MNACN: [ 326, 149, 206, 30 ], score: 0.954931 }, { HIER6RPH: [ 120, 166, 90, 19 ], score: 0.772374 }, { 戏适合年满12周岁以上的用户使用;为了您的健康，请合理控制: [ 1, 285, 531, 19 ], score: 0.953368 }, { 7-498-05646-7著作权人:上海鹰角网络科技有限公司出版单位;: [ 2, 311, 525, 18 ], score: 0.958118 }, { 盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏: [ 0, 334, 532, 22 ], score: 0.957359 }] by OCR Pipeline , cost 656 ms
+[2025-01-11 08:44:43.188][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 57 ms
+[2025-01-11 08:44:43.288][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 91 ms
+[2025-01-11 08:44:43.323][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":4,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:43.323][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:44.324][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:44.955][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 年闪: [ 95, 127, 144, 33 ], score: 0.529546 }, { S1918: [ 332, 119, 113, 25 ], score: 0.732274 }, { MNAC: [ 323, 150, 207, 28 ], score: 0.924254 }, { HER6RYPH: [ 119, 164, 91, 19 ], score: 0.805160 }, { 人物、事件、故事及其他内容均为虚构,与真实人: [ 27, 227, 502, 17 ], score: 0.906523 }, { 些视觉影像时可能会突然巅床发作,这些影响包括: [ 23, 309, 508, 19 ], score: 0.925152 }, { 突然发病或癫病史的人也可能具有一些可能会在观看礼: [ 2, 332, 529, 24 ], score: 0.898056 }, { 诊症状。巅病症发作时可能有多种症状,包括头晕目: [ 4, 361, 528, 18 ], score: 0.909610 }, { 志不清、混乱或暂时失去意识。癫发作也可能导致: [ 3, 387, 527, 18 ], score: 0.961155 }, { 书境击I力物本受年: [ 5, 412, 269, 13 ], score: 0.782576 }, { `术任同症: [ 290, 412, 228, 13 ], score: 0.680518 }] by OCR Pipeline , cost 608 ms
+[2025-01-11 08:44:45.083][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 72: [ 0, 0, 300, 150 ], score: 0.638614 }] by OCR Pipeline , cost 51 ms
+[2025-01-11 08:44:45.134][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ : [ 0, 0, 600, 80 ], score: 0.000000 }] by OCR Pipeline , cost 32 ms
+[2025-01-11 08:44:45.169][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":5,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:45.169][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:46.170][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:46.313][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 两: [ 0, 77, 521, 251 ], score: 0.270761 }, { ARKNGH1s: [ 212, 329, 108, 15 ], score: 0.883808 }] by OCR Pipeline , cost 119 ms
+[2025-01-11 08:44:46.453][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 300, 150 ], score: 0.710042 }] by OCR Pipeline , cost 46 ms
+[2025-01-11 08:44:46.538][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ ”: [ 0, 0, 600, 80 ], score: 0.492018 }] by OCR Pipeline , cost 76 ms
+[2025-01-11 08:44:46.570][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":6,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:46.570][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:47.571][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:47.691][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 95 ms
+[2025-01-11 08:44:47.850][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 56 ms
+[2025-01-11 08:44:47.922][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 62 ms
+[2025-01-11 08:44:47.954][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":7,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:47.954][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:48.955][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:49.021][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 41 ms
+[2025-01-11 08:44:49.182][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 46 ms
+[2025-01-11 08:44:49.262][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 64 ms
+[2025-01-11 08:44:49.300][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":8,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:49.300][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:50.301][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:50.422][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 95 ms
+[2025-01-11 08:44:50.544][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 28 ms
+[2025-01-11 08:44:50.637][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 68 ms
+[2025-01-11 08:44:50.663][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":9,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:50.663][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:51.663][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:52.079][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -【@】,】SS_!/: [ 107, 165, 421, 48 ], score: 0.736972 }, { Baaceuca1nc: [ 97, 218, 233, 23 ], score: 0.890151 }, { 是一家医药研发公司。罗德岛在公的资料中声称在研究: [ 2, 376, 529, 14 ], score: 0.910657 }, { 问题的医疗方案,因此在各国范围内广招贤士,不管资历，无论: [ 3, 401, 528, 17 ], score: 0.923941 }] by OCR Pipeline , cost 392 ms
+[2025-01-11 08:44:52.211][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ __: [ 0, 0, 300, 150 ], score: 0.622510 }] by OCR Pipeline , cost 57 ms
+[2025-01-11 08:44:52.277][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.575025 }] by OCR Pipeline , cost 57 ms
+[2025-01-11 08:44:52.314][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":10,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:52.314][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:53.315][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:53.922][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -【@】,】SS_!/: [ 107, 165, 421, 48 ], score: 0.736972 }, { Baaceuca1nc: [ 97, 218, 233, 23 ], score: 0.890151 }, { 是一家医药研发公司。罗德岛在公的资料中声称在研究: [ 2, 376, 529, 14 ], score: 0.910657 }, { 问题的医疗方案,因此在各国范围内广招贤士,不管资历，无论: [ 3, 401, 528, 17 ], score: 0.923941 }] by OCR Pipeline , cost 582 ms
+[2025-01-11 08:44:54.036][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ __: [ 0, 0, 300, 150 ], score: 0.622510 }] by OCR Pipeline , cost 26 ms
+[2025-01-11 08:44:54.088][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 正在获取更新…: [ 236, 35, 128, 17 ], score: 0.893135 }] by OCR Pipeline , cost 41 ms
+[2025-01-11 08:44:54.121][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":11,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:54.121][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:55.122][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:55.136][INF][Px1ea8][Tx2d28] Assistant::append_callback | ConnectionInfo {"details":{"avg":14,"max":18,"min":13},"uuid":"1694094529805317","what":"ScreencapCost"}
+[2025-01-11 08:44:55.667][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -【@】,】SS_!/: [ 107, 165, 421, 48 ], score: 0.736972 }, { Baaceuca1nc: [ 97, 218, 233, 23 ], score: 0.890151 }, { 是一家医药研发公司。罗德岛在公的资料中声称在研究: [ 2, 376, 529, 14 ], score: 0.910657 }, { 问题的医疗方案,因此在各国范围内广招贤士,不管资历，无论: [ 3, 401, 528, 17 ], score: 0.923941 }] by OCR Pipeline , cost 521 ms
+[2025-01-11 08:44:55.773][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ __: [ 0, 0, 300, 150 ], score: 0.622510 }] by OCR Pipeline , cost 28 ms
+[2025-01-11 08:44:55.900][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 止在香给原元;不自量·: [ 158, 38, 283, 11 ], score: 0.631569 }] by OCR Pipeline , cost 99 ms
+[2025-01-11 08:44:55.928][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":12,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:55.928][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:56.929][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:57.470][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -【@】,】SS_!/: [ 107, 165, 421, 48 ], score: 0.736972 }, { Baaceuca1nc: [ 97, 218, 233, 23 ], score: 0.890151 }, { 是一家医药研发公司。罗德岛在公的资料中声称在研究: [ 2, 376, 529, 14 ], score: 0.910657 }, { 问题的医疗方案,因此在各国范围内广招贤士,不管资历，无论: [ 3, 401, 528, 17 ], score: 0.923941 }] by OCR Pipeline , cost 518 ms
+[2025-01-11 08:44:57.613][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ __: [ 0, 0, 300, 150 ], score: 0.622510 }] by OCR Pipeline , cost 63 ms
+[2025-01-11 08:44:57.744][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ 正在检查资源完整性,不消耗流量: [ 155, 36, 287, 14 ], score: 0.977710 }] by OCR Pipeline , cost 122 ms
+[2025-01-11 08:44:57.765][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":13,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUpBegin@LoadingIcon","StartUp@ReturnButton","StartUp@FromStageSN","StartUp@FromAnnihilation","StartUp@EndOfAction"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:44:57.765][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:44:58.766][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:44:58.788][TRC][Px1ea8][Tx2d28] match_templ | GameStart.png score: 0.992951 rect: [ 611, 652, 58, 58 ] roi: [ 550, 600, 200, 120 ]
+[2025-01-11 08:44:58.788][TRC][Px1ea8][Tx2d28] asst::PipelineAnalyzer::analyze | MatchTemplate StartUp@GameStart
+[2025-01-11 08:44:58.788][INF][Px1ea8][Tx2d28] Assistant::append_callback | SubTaskStart {"class":"asst::ProcessTask","details":{"action":"ClickSelf","algorithm":"MatchTemplate","exec_times":1,"max_times":2147483647,"result":{"score":0.992951},"task":"GameStart"},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:44:58.788][TRC][Px1ea8][Tx2d28] Click with scaled coordinates (641, 683) 1.5
+[2025-01-11 08:44:58.788][TRC][Px1ea8][Tx2d28] minitouch click: (961, 1024)
+[2025-01-11 08:44:58.889][TRC][Px1ea8][Tx2d28] ready to sleep 3000
+[2025-01-11 08:45:01.890][TRC][Px1ea8][Tx2d28] end of sleep 3000
+[2025-01-11 08:45:01.890][INF][Px1ea8][Tx2d28] Assistant::append_callback | SubTaskCompleted {"class":"asst::ProcessTask","details":{"action":"ClickSelf","algorithm":"MatchTemplate","exec_times":1,"max_times":2147483647,"result":{"score":0.992951},"task":"GameStart"},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUpBegin","subtask":"ProcessTask","taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:45:01.890][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:02.891][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:02.891][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":0,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:03.014][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 96 ms
+[2025-01-11 08:45:03.179][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 56 ms
+[2025-01-11 08:45:03.250][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 61 ms
+[2025-01-11 08:45:03.257][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":1,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:03.257][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:04.258][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:04.327][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 45 ms
+[2025-01-11 08:45:04.499][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 59 ms
+[2025-01-11 08:45:04.567][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 58 ms
+[2025-01-11 08:45:04.572][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":2,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:04.572][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:05.573][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:05.673][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 74 ms
+[2025-01-11 08:45:05.821][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 43 ms
+[2025-01-11 08:45:05.879][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 47 ms
+[2025-01-11 08:45:05.886][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":3,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:05.886][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:06.886][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:07.012][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 102 ms
+[2025-01-11 08:45:07.201][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 93 ms
+[2025-01-11 08:45:07.271][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 43 ms
+[2025-01-11 08:45:07.289][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":4,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:07.289][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:08.290][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:08.358][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 44 ms
+[2025-01-11 08:45:08.572][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 94 ms
+[2025-01-11 08:45:08.636][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 54 ms
+[2025-01-11 08:45:08.655][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":5,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:08.655][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:09.656][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:09.841][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 160 ms
+[2025-01-11 08:45:10.012][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 88 ms
+[2025-01-11 08:45:10.086][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 64 ms
+[2025-01-11 08:45:10.092][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":6,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:10.093][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:11.093][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:11.211][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 93 ms
+[2025-01-11 08:45:11.375][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 66 ms
+[2025-01-11 08:45:11.448][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 64 ms
+[2025-01-11 08:45:11.471][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":7,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:11.471][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:12.472][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:12.487][INF][Px1ea8][Tx2d28] Assistant::append_callback | ConnectionInfo {"details":{"avg":14,"max":17,"min":13},"uuid":"1694094529805317","what":"ScreencapCost"}
+[2025-01-11 08:45:12.566][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 70 ms
+[2025-01-11 08:45:12.698][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 24 ms
+[2025-01-11 08:45:12.857][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 131 ms
+[2025-01-11 08:45:12.865][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":8,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:12.865][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:13.866][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:14.008][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 118 ms
+[2025-01-11 08:45:14.184][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 74 ms
+[2025-01-11 08:45:14.298][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 105 ms
+[2025-01-11 08:45:14.321][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":9,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:14.322][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:15.323][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:15.441][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 95 ms
+[2025-01-11 08:45:15.561][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 22 ms
+[2025-01-11 08:45:15.656][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 67 ms
+[2025-01-11 08:45:15.662][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":10,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:15.662][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:16.663][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:16.727][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 41 ms
+[2025-01-11 08:45:16.896][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 49 ms
+[2025-01-11 08:45:16.964][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 58 ms
+[2025-01-11 08:45:16.972][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":11,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:16.972][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:17.973][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:18.074][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 77 ms
+[2025-01-11 08:45:18.218][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 42 ms
+[2025-01-11 08:45:18.342][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 97 ms
+[2025-01-11 08:45:18.349][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":12,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:18.350][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:19.351][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:19.443][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 68 ms
+[2025-01-11 08:45:19.648][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 103 ms
+[2025-01-11 08:45:19.732][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 75 ms
+[2025-01-11 08:45:19.740][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":13,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:19.740][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:20.741][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:20.789][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 26 ms
+[2025-01-11 08:45:21.039][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 124 ms
+[2025-01-11 08:45:21.145][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 96 ms
+[2025-01-11 08:45:21.152][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":14,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:21.152][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:22.153][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:22.242][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 66 ms
+[2025-01-11 08:45:22.403][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 58 ms
+[2025-01-11 08:45:22.472][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 60 ms
+[2025-01-11 08:45:22.479][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":15,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:22.479][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:23.480][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:23.569][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 66 ms
+[2025-01-11 08:45:23.776][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 105 ms
+[2025-01-11 08:45:23.824][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 36 ms
+[2025-01-11 08:45:23.832][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":16,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:23.832][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:24.832][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:24.923][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 68 ms
+[2025-01-11 08:45:25.052][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 24 ms
+[2025-01-11 08:45:25.178][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 117 ms
+[2025-01-11 08:45:25.185][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":17,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:25.185][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:26.186][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:26.199][INF][Px1ea8][Tx2d28] Assistant::append_callback | ConnectionInfo {"details":{"avg":14,"max":17,"min":13},"uuid":"1694094529805317","what":"ScreencapCost"}
+[2025-01-11 08:45:26.317][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 108 ms
+[2025-01-11 08:45:26.458][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 49 ms
+[2025-01-11 08:45:26.577][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 110 ms
+[2025-01-11 08:45:26.584][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":18,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:26.584][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:27.585][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:27.636][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 27 ms
+[2025-01-11 08:45:27.781][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 17 ms
+[2025-01-11 08:45:27.875][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 70 ms
+[2025-01-11 08:45:27.900][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":19,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:27.900][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:28.901][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:28.977][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 53 ms
+[2025-01-11 08:45:29.147][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 56 ms
+[2025-01-11 08:45:29.212][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 39 ms
+[2025-01-11 08:45:29.221][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":20,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:29.221][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:30.223][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:30.317][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 72 ms
+[2025-01-11 08:45:30.478][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 57 ms
+[2025-01-11 08:45:30.553][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 67 ms
+[2025-01-11 08:45:30.561][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":21,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:30.561][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:31.562][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:31.651][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 66 ms
+[2025-01-11 08:45:31.817][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 62 ms
+[2025-01-11 08:45:31.911][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 83 ms
+[2025-01-11 08:45:31.919][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":22,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:31.919][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:32.920][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:32.988][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 46 ms
+[2025-01-11 08:45:33.128][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 24 ms
+[2025-01-11 08:45:33.211][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 56 ms
+[2025-01-11 08:45:33.218][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":23,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:33.218][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:34.220][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:34.315][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 72 ms
+[2025-01-11 08:45:34.472][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 41 ms
+[2025-01-11 08:45:34.565][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 67 ms
+[2025-01-11 08:45:34.572][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":24,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:34.572][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:35.573][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:35.623][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 26 ms
+[2025-01-11 08:45:35.770][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 28 ms
+[2025-01-11 08:45:35.834][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 55 ms
+[2025-01-11 08:45:35.843][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":25,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:35.843][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:36.844][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:36.934][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 66 ms
+[2025-01-11 08:45:37.085][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 41 ms
+[2025-01-11 08:45:37.208][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 114 ms
+[2025-01-11 08:45:37.215][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":26,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:37.215][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:38.216][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:38.271][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 32 ms
+[2025-01-11 08:45:38.431][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 36 ms
+[2025-01-11 08:45:38.521][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 59 ms
+[2025-01-11 08:45:38.529][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":27,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:38.529][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:39.530][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:39.545][INF][Px1ea8][Tx2d28] Assistant::append_callback | ConnectionInfo {"details":{"avg":13,"max":17,"min":13},"uuid":"1694094529805317","what":"ScreencapCost"}
+[2025-01-11 08:45:39.627][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 72 ms
+[2025-01-11 08:45:39.778][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 41 ms
+[2025-01-11 08:45:39.869][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 65 ms
+[2025-01-11 08:45:39.875][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":28,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:39.875][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:40.876][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:40.988][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 89 ms
+[2025-01-11 08:45:41.139][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 61 ms
+[2025-01-11 08:45:41.207][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 58 ms
+[2025-01-11 08:45:41.213][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":29,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:41.213][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:42.214][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:42.390][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 153 ms
+[2025-01-11 08:45:42.514][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 41 ms
+[2025-01-11 08:45:42.606][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 66 ms
+[2025-01-11 08:45:42.613][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":30,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:42.613][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:43.613][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:43.706][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 70 ms
+[2025-01-11 08:45:43.891][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 86 ms
+[2025-01-11 08:45:43.964][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 62 ms
+[2025-01-11 08:45:43.988][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":31,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:43.989][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:44.990][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:45.108][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 95 ms
+[2025-01-11 08:45:45.254][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 69 ms
+[2025-01-11 08:45:45.388][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 125 ms
+[2025-01-11 08:45:45.395][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":32,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:45.395][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:46.397][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:46.464][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 43 ms
+[2025-01-11 08:45:46.619][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 24 ms
+[2025-01-11 08:45:46.678][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 46 ms
+[2025-01-11 08:45:46.703][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":33,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:46.703][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:47.704][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:47.770][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 43 ms
+[2025-01-11 08:45:47.950][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 62 ms
+[2025-01-11 08:45:48.083][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 125 ms
+[2025-01-11 08:45:48.091][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":34,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:48.091][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:49.092][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:49.181][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 65 ms
+[2025-01-11 08:45:49.350][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 59 ms
+[2025-01-11 08:45:49.390][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 31 ms
+[2025-01-11 08:45:49.396][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":35,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:49.396][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:50.398][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:50.471][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 51 ms
+[2025-01-11 08:45:50.626][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 46 ms
+[2025-01-11 08:45:50.660][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 25 ms
+[2025-01-11 08:45:50.684][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":36,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:50.684][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:51.686][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:51.748][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 40 ms
+[2025-01-11 08:45:51.965][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 95 ms
+[2025-01-11 08:45:52.036][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 62 ms
+[2025-01-11 08:45:52.044][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":37,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:52.044][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:53.045][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:53.059][INF][Px1ea8][Tx2d28] Assistant::append_callback | ConnectionInfo {"details":{"avg":13,"max":15,"min":13},"uuid":"1694094529805317","what":"ScreencapCost"}
+[2025-01-11 08:45:53.161][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 92 ms
+[2025-01-11 08:45:53.337][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 71 ms
+[2025-01-11 08:45:53.466][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 120 ms
+[2025-01-11 08:45:53.472][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":38,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:53.472][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:54.473][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:54.642][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 145 ms
+[2025-01-11 08:45:54.736][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 26 ms
+[2025-01-11 08:45:54.864][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 100 ms
+[2025-01-11 08:45:54.870][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":39,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:54.870][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:55.871][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:55.965][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 70 ms
+[2025-01-11 08:45:56.109][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 27 ms
+[2025-01-11 08:45:56.231][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 95 ms
+[2025-01-11 08:45:56.238][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":40,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:56.238][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:57.239][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:57.369][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 106 ms
+[2025-01-11 08:45:57.488][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 24 ms
+[2025-01-11 08:45:57.530][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 32 ms
+[2025-01-11 08:45:57.554][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":41,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:57.555][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:58.556][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:58.644][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 66 ms
+[2025-01-11 08:45:58.798][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 44 ms
+[2025-01-11 08:45:58.849][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 28 ms
+[2025-01-11 08:45:58.856][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":42,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:45:58.856][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:45:59.857][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:45:59.975][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 95 ms
+[2025-01-11 08:46:00.112][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 48 ms
+[2025-01-11 08:46:00.167][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 46 ms
+[2025-01-11 08:46:00.174][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":43,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:00.174][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:01.175][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:01.279][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 77 ms
+[2025-01-11 08:46:01.428][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 46 ms
+[2025-01-11 08:46:01.509][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 71 ms
+[2025-01-11 08:46:01.516][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":44,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:01.517][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:02.517][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:02.610][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 69 ms
+[2025-01-11 08:46:02.816][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 105 ms
+[2025-01-11 08:46:02.872][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 47 ms
+[2025-01-11 08:46:02.879][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":45,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:02.879][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:03.880][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:03.967][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 64 ms
+[2025-01-11 08:46:04.133][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 47 ms
+[2025-01-11 08:46:04.219][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 62 ms
+[2025-01-11 08:46:04.225][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":46,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:04.225][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:05.226][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:05.292][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 42 ms
+[2025-01-11 08:46:05.467][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 57 ms
+[2025-01-11 08:46:05.537][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 59 ms
+[2025-01-11 08:46:05.544][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":47,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:05.544][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:06.545][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:06.560][INF][Px1ea8][Tx2d28] Assistant::append_callback | ConnectionInfo {"details":{"avg":13,"max":15,"min":13},"uuid":"1694094529805317","what":"ScreencapCost"}
+[2025-01-11 08:46:06.637][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 67 ms
+[2025-01-11 08:46:06.802][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 59 ms
+[2025-01-11 08:46:06.873][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 63 ms
+[2025-01-11 08:46:06.898][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":48,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:06.898][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:07.899][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:07.965][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 42 ms
+[2025-01-11 08:46:08.136][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 58 ms
+[2025-01-11 08:46:08.263][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 117 ms
+[2025-01-11 08:46:08.271][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":49,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:08.271][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:09.272][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:09.347][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 51 ms
+[2025-01-11 08:46:09.505][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 45 ms
+[2025-01-11 08:46:09.654][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 118 ms
+[2025-01-11 08:46:09.661][INF][Px1ea8][Tx2d28] {"class":"asst::ProcessTask","details":{"cur_retry":50,"retry_times":50,"to_be_recognized":["StartUp@GameStart","StartUp@StartToWakeUp","StartUp@StartToWakeUpOCR","StartUp@StartLoginBServer","StartUp@StartUpConnectingFlag","StartUp","StartUp@CloseAnno","StartUp@CloseAnnoTexas","StartUp@CloseAnnoSpecialAccess","StartUp@TodaysSupplies","StartUp@NotDownloadVoice","StartUp@OfflineConfirm","StartUp@GameStartUpdateOCR","StartUp@GameStart@LoadingIcon"]},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14}
+[2025-01-11 08:46:09.661][TRC][Px1ea8][Tx2d28] ready to sleep 1000
+[2025-01-11 08:46:10.663][TRC][Px1ea8][Tx2d28] end of sleep 1000
+[2025-01-11 08:46:10.714][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ -: [ 0, 0, 535, 430 ], score: 0.597698 }] by OCR Pipeline , cost 28 ms
+[2025-01-11 08:46:10.854][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ .: [ 0, 0, 300, 150 ], score: 0.669316 }] by OCR Pipeline , cost 18 ms
+[2025-01-11 08:46:10.989][TRC][Px1ea8][Tx2d28] asst::WordOcr [{ _: [ 0, 0, 600, 80 ], score: 0.725502 }] by OCR Pipeline , cost 109 ms
+[2025-01-11 08:46:10.996][INF][Px1ea8][Tx2d28] Assistant::append_callback | SubTaskError {"class":"asst::ProcessTask","details":{},"first":["StartAtHome","StartWithSanity","StartUpBegin"],"pre_task":"StartUp@GameStart","subtask":"ProcessTask","taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
+[2025-01-11 08:46:10.996][TRC][Px1ea8][Tx2d28] asst::ProcessTask::run | leave, 94419 ms
+[2025-01-11 08:46:10.996][INF][Px1ea8][Tx2d28] Assistant::append_callback | TaskChainError {"taskchain":"StartUp","taskid":14,"uuid":"1694094529805317"}
